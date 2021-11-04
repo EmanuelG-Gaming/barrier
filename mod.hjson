@@ -1,23 +1,23 @@
-#the mod name as displayed in-game
-displayName: "Java Mod Template"
+# the mod name as displayed in-game
+displayName: "Barrier"
 
-#the internal name of your mod
+# the internal name of your mod
 name: "example-java-mod"
 
-#your name
-author: "You"
+# your name
+author: "Emanuel G"
 
-#the fully qualified main class of the mod
+# the fully qualified main class of the mod
 main: "example.ExampleJavaMod"
 
-#the mod description as seen in the mod dialog
-description: "A Mindustry Java mod template."
+#t he mod description as seen in the mod dialog
+description: "Adds a new block, known as the Barrier."
 
 #the mod version
-version: 1.0
+version: 0.1
 
 #the minimum game build required to run this mod
 minGameVersion: 129
 
-#this is a java mod
+# this is a ~~kotlin~~ java mod
 java: true

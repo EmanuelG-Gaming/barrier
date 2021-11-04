@@ -8,8 +8,9 @@ import mindustry.game.EventType.*;
 import mindustry.gen.*;
 import mindustry.mod.*;
 import mindustry.ui.dialogs.*;
+import example.content;
 
-public class ExampleJavaMod extends Mod{
+public class ExampleJavaMod extends Mod {
 
     public ExampleJavaMod(){
         Log.info("Loaded ExampleJavaMod constructor.");
@@ -22,16 +23,22 @@ public class ExampleJavaMod extends Mod{
                 BaseDialog dialog = new BaseDialog("Yes");
                 dialog.cont.add("behold").row();
                 //mod sprites are prefixed with the mod name (this mod is called 'example-java-mod' in its config)
-                dialog.cont.image(Core.atlas.find("error")/*ohno*/).pad(20f).row();
-                dialog.cont.button("Hide this and never show it again", dialog::hide).size(100f, 50f);
+                dialog.cont.image(Core.atlas.find("error")/*ohno*/).padBottom(20f).row();
+                dialog.cont.button("Hide this and never show it again", dialog::hide).size(100f, 350f);
                 if (show) dialog.show();
             });
         });
     }
 
-    @Override
-    public void loadContent(){
-      Log.info("Loading some example content.");
+    private final ContentList[] barrierContent = {
+      new BBlockTypes();
     }
-
+    
+    @Override
+    public void loadContent() {
+      Log.info("Loading some example content...");
+      for (ContentList list : barrierContent) {
+        list.load();
+      }
+    }
 }
