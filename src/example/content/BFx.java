@@ -18,7 +18,8 @@ import static arc.graphics.g2d.Lines.*;
 import static mindustry.Vars.*;
 
 public class BFx {
-  public static final Effect;
+  public static final Effect
+  
   barrierRepulse = new Effect(100f, e -> {
     float ihiAlpha = Interp.pow5Out.apply(e.fout());
     
@@ -27,5 +28,5 @@ public class BFx {
     stroke(4f * e.fout() + 1f);
     Lines.circle(e.x, e.y, e.finpow() * 4f + 1f);
     reset();
-  })
+  });
 }

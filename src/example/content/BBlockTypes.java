@@ -22,11 +22,11 @@ public class BBlockTypes implements ContentList {
   // Defense
   barrier
   ;
-  
+
   @Override
   public void load() {
     barrier = new BarrierBlockType("barrier") {{
       requirements(Category.defense, with(Items.copper, 6, Items.graphite, 6, Items.thorium, 6));
-    }}
+    }};
   }
 }

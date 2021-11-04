@@ -22,7 +22,7 @@ public BarrierBlockType extends Wall {
     
     public void getRange(Block b) {
       return b.size * tilesize + b.offset;
-    }
+    };
     
     @Override
     public void update(Block b) {
@@ -32,7 +32,7 @@ public BarrierBlockType extends Wall {
           BFx.barrierRepulse.at(b);
           if (other instanceof Healthc) other.damage(damage);
         }
-      })
+      });
     }
   }
 }
