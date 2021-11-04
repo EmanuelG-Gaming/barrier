@@ -8,11 +8,11 @@ import mindustry.game.EventType.*;
 import mindustry.gen.*;
 import mindustry.mod.*;
 import mindustry.ui.dialogs.*;
-import example.content;
+import example.content.*;
 
 public class ExampleJavaMod extends Mod {
 
-    public ExampleJavaMod(){
+    public ExampleJavaMod() {
         Log.info("Loaded ExampleJavaMod constructor.");
 
         //listen for game load event

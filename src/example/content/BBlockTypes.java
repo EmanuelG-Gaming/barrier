@@ -17,7 +17,7 @@ import example.world.blocks.defense.BarrierBlockType.*;
 import static mindustry.type.ItemStack.*;
 
 public class BBlockTypes implements ContentList {
-  public static BBlock
+  public static Block
   
   // Defense WðL
   barrier;
