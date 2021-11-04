@@ -31,5 +31,5 @@ public class BFx {
     alpha(ihiAlpha - 0.2f);
     Fill.circle(e.x, e.y, radius);
     reset();
-  });
+  }).layer(Layer.block + 0.01f);
 }

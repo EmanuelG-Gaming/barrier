@@ -19,6 +19,8 @@ public BarrierBlockType extends Wall {
   
   public BarrierBlockType(String name) {
     super(name);
+    
+    size = 1;
   }
   
   public class BarrierBuild extends WallBuild {
@@ -33,7 +35,7 @@ public BarrierBlockType extends Wall {
       super.update();
       Units.nearby(null, b.x, b.y, getRange(b), other -> {
         if (other != null && other.team != b.team) {
-          BFx.barrierRepulse.at(b);
+          whooshEffect.at(b);
           if (other instanceof Healthc) other.damage(damage);
         }
       });

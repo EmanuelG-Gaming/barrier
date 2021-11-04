@@ -13,19 +13,18 @@ import mindustry.world.blocks.*;
 import mindustry.world.blocks.defense.*;
 import mindustry.world.blocks.defense.walls.*;
 import mindustry.world.meta.*;
-
+import example.world.blocks.defense.BarrierBlockType.*;
 import static mindustry.type.ItemStack.*;
 
 public class BBlockTypes implements ContentList {
   public static BBlock
   
-  // Defense
-  barrier
-  ;
+  // Defense WðL
+  barrier;
 
   @Override
   public void load() {
-    barrier = new BarrierBlockType("barrier") {{
+    barrier = new BarrierBlockType("barrier"){{
       requirements(Category.defense, with(Items.copper, 6, Items.graphite, 6, Items.thorium, 6));
     }};
   }
