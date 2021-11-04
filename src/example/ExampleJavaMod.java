@@ -39,6 +39,6 @@ public class ExampleJavaMod extends Mod {
       Log.info("Loading some example content...");
       for (ContentList list : barrierContent) {
         list.load();
-      };
+      }
     }
 }

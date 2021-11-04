@@ -2,9 +2,11 @@ package example.world.blocks.defense;
 
 import mindustry.gen.*;
 import mindustry.entities.*;
+import mindustry.entities.Effect.*;
 import mindustry.game.Team.*;
+import mindustry.world.blocks.*;
+import mindustry.world.Block.*;
 import mindustry.world.blocks.defense.Wall.*;
-import mindustry.world.*;
 import mindustry.world.meta.*;
 import example.content.BFx.*;
 
@@ -18,12 +20,13 @@ public BarrierBlockType extends Wall {
   public BarrierBlockType(String name) {
     super(name);
   }
+  
   public class BarrierBuild extends WallBuild {
     public float damage = Float.MAX_VALUE;
     
     public void getRange(Block b) {
       return b.size * tilesize + b.offset;
-    };
+    }
     
     @Override
     public void update(Block b) {
