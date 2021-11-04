@@ -23,10 +23,9 @@ public class ExampleJavaMod extends Mod{
                 dialog.cont.add("behold").row();
                 //mod sprites are prefixed with the mod name (this mod is called 'example-java-mod' in its config)
                 dialog.cont.image(Core.atlas.find("error")).pad(20f).row(); // haha no
-                dialog.cont.button("Hide this and never show it again", () -> {
+                dialog.cont.button("Hide this and never show it again",
                   dialog::hide;
-                  show = false;
-                }).size(100f, 50f);
+                ).size(100f, 50f);
                 if (show) dialog.show();
             });
         });
