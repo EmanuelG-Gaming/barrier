@@ -14,6 +14,7 @@ public BarrierBlockType extends Wall {
   
   public Effect whooshEffect = BFx.barrierRepulse;
   public int health = Integer.MAX_VALUE;
+  
   public BarrierBlockType(String name) {
     super(name);
   }

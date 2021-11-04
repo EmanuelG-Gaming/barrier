@@ -22,11 +22,13 @@ public class BFx {
   
   barrierRepulse = new Effect(100f, e -> {
     float ihiAlpha = Interp.pow5Out.apply(e.fout());
-    
+    float radius = e.finpow() * 8f + 2f;
     color(Pal.lancerLaser, Color.white, e.fin());
     alpha(ihiAlpha);
     stroke(4f * e.fout() + 1f);
-    Lines.circle(e.x, e.y, e.finpow() * 4f + 1f);
+    Lines.circle(e.x, e.y, radius);
+    alpha(ihiAlpha - 0.2f);
+    Fill.circle(e.x, e.y, radius);
     reset();
   });
 }
