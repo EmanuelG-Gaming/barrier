@@ -18,7 +18,6 @@ import static mindustry.type.ItemStack.*;
 
 public class BBlockTypes implements ContentList {
   public static Block
-  
   // Defense WðL
   barrier;
 

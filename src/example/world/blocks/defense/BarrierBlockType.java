@@ -1,3 +1,4 @@
+/*
 package example.world.blocks.defense;
 
 import mindustry.gen.*;
@@ -12,10 +13,10 @@ import example.content.BFx.*;
 
 import static mindustry.Vars.*; 
 
-public BarrierBlockType extends Wall {
+public class BarrierBlockType extends Wall {
   
   public Effect whooshEffect = BFx.barrierRepulse;
-  public int health = Integer.MAX_VALUE;
+  public int health = 999999;
   
   public BarrierBlockType(String name) {
     super(name);
@@ -24,7 +25,7 @@ public BarrierBlockType extends Wall {
   }
   
   public class BarrierBuild extends WallBuild {
-    public float damage = Float.MAX_VALUE;
+    public float damage = 999999;
     
     public void getRange(Block b) {
       return b.size * tilesize + b.offset;
@@ -32,9 +33,9 @@ public BarrierBlockType extends Wall {
     
     @Override
     public void update(Block b) {
-      super.update();
-      Units.nearby(null, b.x, b.y, getRange(b), other -> {
-        if (other != null && other.team != b.team) {
+      super.update(Block b);
+      Units.nearbyEnemies(b.team, b.x, b.y, getRange(b), other -> {
+        if (other != null) {
           whooshEffect.at(b);
           if (other instanceof Healthc) other.damage(damage);
         }
@@ -42,3 +43,4 @@ public BarrierBlockType extends Wall {
     }
   }
 }
+*/
