@@ -9,7 +9,7 @@ import mindustry.world.blocks.*;
 import mindustry.world.Block.*;
 import mindustry.world.blocks.defense.Wall.*;
 import mindustry.world.meta.*;
-import example.content.BFx.*;
+import barrier.content.BFx.*;
 
 import static mindustry.Vars.*; 
 

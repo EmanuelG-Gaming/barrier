@@ -8,7 +8,7 @@ import mindustry.*;
 import mindustry.content.*;
 import mindustry.gen.*;
 import mindustry.mod.*;
-import example.content.*;
+import barrier.content.*;
 
 public class Barrier extends Mod {
     public Barrier() {
