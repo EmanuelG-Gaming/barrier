@@ -8,7 +8,7 @@ import mindustry.*;
 import mindustry.content.*;
 import mindustry.gen.*;
 import mindustry.mod.*;
-import barrier.content.*;
+import barrier.content;
 
 public class Barrier extends Mod {
     public Barrier() {
@@ -16,13 +16,15 @@ public class Barrier extends Mod {
     }
     
     private final ContentList[] barrierContent = {
-        new BBlockTypes()
+        //new BBlockTypes()
     };
     
+    /*
     @Override
     public void loadContent(){
         for(ContentList list : barrierContent){
             list.load();
         };
     }
+    */
 }
