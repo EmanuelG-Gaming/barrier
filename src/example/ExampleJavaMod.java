@@ -2,42 +2,27 @@ package example;
 
 import arc.*;
 import arc.util.*;
+import arc.util.Log.*;
+import mindustry.ctype.*;
 import mindustry.*;
 import mindustry.content.*;
-import mindustry.game.EventType.*;
 import mindustry.gen.*;
 import mindustry.mod.*;
-import mindustry.ui.dialogs.*;
 import example.content.*;
 
 public class ExampleJavaMod extends Mod {
-
     public ExampleJavaMod() {
-        Log.info("Loaded ExampleJavaMod constructor.");
-
-        //listen for game load event
-        Events.on(ClientLoadEvent.class, e -> {
-            //show dialog upon startup
-            boolean show = true;
-            Time.runTask(10f, () -> {
-                BaseDialog dialog = new BaseDialog("Yes");
-                dialog.cont.add("behold").row();
-                //mod sprites are prefixed with the mod name (this mod is called 'example-java-mod' in its config)
-                dialog.cont.image(Core.atlas.find("error")/*ohno*/).padBottom(20f).row();
-                dialog.cont.button("Hide this", dialog::hide).size(100f, 50f);
-                if (show) dialog.show();
-            });
-        });
+        Log.info("Barrier");
     }
-
-    private final ContentList[] barrierContent = {
-      new BBlockTypes()
+    
+    public final ContentList[] barrierContent = {
+        new BBlockTypes()
     };
     
     @Override
     public void loadContent(){
-      for(ContentList list : barrierContent){
-        list.load();
-      };
+        for(ContentList list : barrierContent){
+            list.load();
+        };
     }
 }
