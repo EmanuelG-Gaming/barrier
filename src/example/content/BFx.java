@@ -1,3 +1,4 @@
+/*
 package example.content;
 
 import arc.*;
@@ -31,3 +32,4 @@ public class BFx {
     reset();
   }).layer(Layer.block + 0.01f);
 }
+*/

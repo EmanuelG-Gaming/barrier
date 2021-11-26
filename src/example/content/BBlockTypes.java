@@ -1,3 +1,4 @@
+/*
 package example.content;
 
 import arc.graphics.*;
@@ -28,3 +29,4 @@ public class BBlockTypes implements ContentList {
     }};
   }
 }
+*/
