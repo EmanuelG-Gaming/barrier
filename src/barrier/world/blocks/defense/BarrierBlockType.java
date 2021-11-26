@@ -1,5 +1,5 @@
 /*
-package example.world.blocks.defense;
+package barrier.world.blocks.defense;
 
 import mindustry.gen.*;
 import mindustry.entities.*;

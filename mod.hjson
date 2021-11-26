@@ -1,23 +1,8 @@
-# the mod name as displayed in-game
 displayName: "Barrier"
-
-# the internal name of your mod
-name: "example-java-mod"
-
-# your name
+name: "barrier"
 author: "Emanuel G"
-
-# the fully qualified main class of the mod
-main: "example.ExampleJavaMod"
-
-#t he mod description as seen in the mod dialog
+main: "barrier.Barrier"
 description: "Adds a new block, known as the Barrier."
-
-#the mod version
 version: 0.1
-
-#the minimum game build required to run this mod
 minGameVersion: 129
-
-# this is a ~~kotlin~~ java mod
 java: true

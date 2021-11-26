@@ -1,4 +1,4 @@
-package example;
+package barrier;
 
 import arc.*;
 import arc.util.*;
@@ -10,12 +10,12 @@ import mindustry.gen.*;
 import mindustry.mod.*;
 import example.content.*;
 
-public class ExampleJavaMod extends Mod {
-    public ExampleJavaMod() {
+public class Barrier extends Mod {
+    public Barrier() {
         Log.info("Barrier");
     }
     
-    public final ContentList[] barrierContent = {
+    private final ContentList[] barrierContent = {
         new BBlockTypes()
     };
     

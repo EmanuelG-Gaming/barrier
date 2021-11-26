@@ -1,5 +1,5 @@
 /*
-package example.content;
+package barrier.content;
 
 import arc.graphics.*;
 import arc.math.*;
