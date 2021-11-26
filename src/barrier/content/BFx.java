@@ -1,6 +1,6 @@
-/*
 package barrier.content;
 
+/*
 import arc.*;
 import arc.graphics.*;
 import arc.graphics.g2d.*;

@@ -16,15 +16,13 @@ public class Barrier extends Mod {
     }
     
     private final ContentList[] barrierContent = {
-        //new BBlockTypes()
+        new BUnitTypes()
     };
     
-    /*
     @Override
     public void loadContent(){
         for(ContentList list : barrierContent){
             list.load();
         };
     }
-    */
 }

@@ -1,6 +1,6 @@
-/*
 package barrier.world.blocks.defense;
 
+/*
 import mindustry.gen.*;
 import mindustry.entities.*;
 import mindustry.entities.Effect.*;
