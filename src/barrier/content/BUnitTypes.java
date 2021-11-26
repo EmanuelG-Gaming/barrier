@@ -8,7 +8,7 @@ import mindustry.ctype.*;
 import mindustry.entities.*;
 import mindustry.entities.bullet.*;
 import mindustry.mod.*;
-import mindustry.gen.*``
+import mindustry.gen.*;
 import mindustry.type.*;
 import mindustry.type.ammo.*;
 import mindustry.type.weapons.*;
