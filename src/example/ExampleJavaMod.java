@@ -31,13 +31,12 @@ public class ExampleJavaMod extends Mod {
     }
 
     private final ContentList[] barrierContent = {
-      new BBlockTypes();
+      new BBlockTypes()
     };
     
     @Override
     public void loadContent(){
-      Log.info("Loading some example content...");
-      for (ContentList list : barrierContent){
+      for(ContentList list : barrierContent){
         list.load();
       };
     }
