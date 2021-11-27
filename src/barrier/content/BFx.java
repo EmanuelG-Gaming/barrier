@@ -1,6 +1,5 @@
 package barrier.content;
 
-/*
 import arc.*;
 import arc.graphics.*;
 import arc.graphics.g2d.*;
@@ -14,12 +13,19 @@ import mindustry.game.*;
 import mindustry.gen.*;
 import mindustry.graphics.*;
 import mindustry.type.*;
-
-import static arc.graphics.g2d.Draw.*;
-import static arc.graphics.g2d.Lines.*;
+import arc.graphics.*;
+import arc.graphics.g2d.*;
+import arc.graphics.Lines.*;
 
 public class BFx {
+  public static final Effect
   
+  barrierUnitShockwave = new Effect(120f, e -> { //////////////////////////////////////////////////////////
+     Draw.color(Tmp.c1.set(Pal.lancerLaser).lerp(Color.white, Mathf.absin(Time.time, 10, 1 * e.fin())));
+     Lines.stroke(e.fout() * 35);
+     Lines.circle(e.x, e.y, e.fin() * 120 + 20);
+  });
+  /*
   public static final Effect barrierRepulse = new Effect(100f, e -> {
     float alpha = Interp.pow5Out.apply(e.fout());
     float radius = e.finpow() * 8f + 2f;
@@ -31,5 +37,5 @@ public class BFx {
     Fill.circle(e.x, e.y, radius);
     reset();
   }).layer(Layer.block + 0.01f);
+  */
 }
-*/
