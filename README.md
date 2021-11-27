@@ -1,5 +1,5 @@
-# Mindustry Java Mod Template
-A Java Mindustry mod template that works on Android and PC. The Kotlin version of this mod can be seen [here](https://github.com/Anuken/MindustryKotlinModTemplate).
+# Barrier
+A Java mod for Mindustry. Adds one new unit at the moment.
 
 ## Building for Desktop Testing
 

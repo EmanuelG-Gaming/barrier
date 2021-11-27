@@ -2,7 +2,7 @@ displayName: "Barrier"
 name: "barrier"
 author: "Emanuel G"
 main: "barrier.Barrier"
-description: "Adds a new block, known as the Barrier."
+description: "Adds a Barrier-related unit. Thanks to Sh1p for the Severed status sprite."
 version: 0.1
 minGameVersion: 129
 java: true

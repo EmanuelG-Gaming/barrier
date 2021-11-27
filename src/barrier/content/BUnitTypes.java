@@ -35,6 +35,7 @@ public class BUnitTypes implements ContentList{
             constructor = UnitEntity::create;
             defaultController = FlyingAI::new;
             region = Core.atlas.find("barrierUnit");
+            // Summit weapon
             weapons.add(new Weapon(""){{
                 top = false;
                 y = 0f;
@@ -43,7 +44,7 @@ public class BUnitTypes implements ContentList{
                 recoil = 4f;
                 shake = 2f;
                 ejectEffect = Fx.none;
-                shootSound = Sounds.wind3; /////////////////////////
+                shootSound = Sounds.wind3;
                 bullet = new RepulseBulletType(3f, 500f){{
                   
                 }};

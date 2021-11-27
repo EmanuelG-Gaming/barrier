@@ -16,14 +16,19 @@ import mindustry.type.*;
 import arc.graphics.*;
 import arc.graphics.g2d.*;
 import arc.graphics.g2d.Lines;
+import arc.graphics.g2d.Fill;
 
 public class BFx {
   public static final Effect
   
-  barrierUnitShockwave = new Effect(60f, e -> { //////////////////////////////////////////////////////////
+  barrierUnitShockwave = new Effect(60f, e -> {
      Draw.color(Tmp.c1.set(Pal.lancerLaser).lerp(Color.white, Mathf.absin(Time.time, 10, 1 * e.fin())));
      Lines.stroke(e.fout() * 40);
      Lines.circle(e.x, e.y, e.fin() * 120 + 20);
+     e.scaled(30f, s -> {
+       Draw.alpha(s.fout() * 0.5);
+       Fill.circle(e.x, e.y, 40 * s.fout() + 20);
+     });
   });
   /*
   public static final Effect barrierRepulse = new Effect(100f, e -> {
