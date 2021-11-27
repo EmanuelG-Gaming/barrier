@@ -20,9 +20,9 @@ import arc.graphics.g2d.Lines;
 public class BFx {
   public static final Effect
   
-  barrierUnitShockwave = new Effect(120f, e -> { //////////////////////////////////////////////////////////
+  barrierUnitShockwave = new Effect(60f, e -> { //////////////////////////////////////////////////////////
      Draw.color(Tmp.c1.set(Pal.lancerLaser).lerp(Color.white, Mathf.absin(Time.time, 10, 1 * e.fin())));
-     Lines.stroke(e.fout() * 35);
+     Lines.stroke(e.fout() * 40);
      Lines.circle(e.x, e.y, e.fin() * 120 + 20);
   });
   /*

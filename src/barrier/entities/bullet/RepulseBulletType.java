@@ -21,7 +21,7 @@ import barrier.content.BStatusEffects;
 public class RepulseBulletType extends BulletType {
 	public float repulseRange = 50f;
 	public float range = 120f;
-	public float size = 16f;
+	public float size = 10f;
 	public StatusEffect knockbackStatus = BStatusEffects.severed;
 	public float statusTime = 70f;
 	private static final Vec2 v1 = new Vec2();
@@ -31,6 +31,7 @@ public class RepulseBulletType extends BulletType {
 		super(speed, damage);
 		layer = Layer.bullet;
 		trailColor = Pal.lancerLaser;
+		trailSize = 8.5f;
 		trailChance = 1f;
 	}
 	@Override
