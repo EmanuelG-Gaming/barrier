@@ -45,7 +45,7 @@ public class BUnitTypes implements ContentList{
                 shootSound = Sounds.wind3; /////////////////////////
                 bullet = new RepulseBulletType(2f, 500f){{
                   
-                }}:
+                }};
             }});
         }};
     };
