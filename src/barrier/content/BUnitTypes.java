@@ -29,6 +29,7 @@ public class BUnitTypes implements ContentList{
             accel = 0.08f;
             drag = 0.01f;
             range = 160f;
+            engineOffset = 7f;
             constructor = UnitEntity::create;
             defaultController = FlyingAI::new;
             region = Core.atlas.find("barrierUnit");
