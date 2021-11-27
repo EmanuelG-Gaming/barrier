@@ -22,11 +22,11 @@ public class BFx {
   public static final Effect
   
   barrierUnitShockwave = new Effect(60f, e -> {
-     Draw.color(Tmp.c1.set(Pal.lancerLaser).lerp(Color.white, Mathf.absin(Time.time, 10, 1 * e.fin())));
+     Draw.color(Tmp.c1.set(Pal.lancerLaser).lerp(Color.white, Mathf.absin(Time.time, 10, e.fin())));
      Lines.stroke(e.fout() * 40);
      Lines.circle(e.x, e.y, e.fin() * 120 + 20);
      e.scaled(30f, s -> {
-       Draw.alpha(s.fout() * 0.5);
+       Draw.alpha(s.fout() * 0.5f);
        Fill.circle(e.x, e.y, 40 * s.fout() + 20);
      });
   });
