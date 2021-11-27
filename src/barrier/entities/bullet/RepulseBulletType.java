@@ -24,8 +24,9 @@ public class RepulseBulletType extends BulletType {
 	public float size = 10f;
 	public StatusEffect knockbackStatus = BStatusEffects.severed;
 	public float statusTime = 70f;
-	private static final Vec2 v1 = new Vec2();
 	public Effect despawnEff = BFx.barrierUnitShockwave;
+	
+	private static final Vec2 v1 = new Vec2();
 
 	public RepulseBulletType(float speed, float damage) {
 		super(speed, damage);
@@ -33,7 +34,8 @@ public class RepulseBulletType extends BulletType {
 		trailColor = Pal.lancerLaser;
 		trailLength = 4;
 		trailWidth = 10f;
-		trailChance = 0f;
+		trailParam = 8.5f;
+		trailChance = 1f;
 	}
 	@Override
   public void draw(Bullet b) {
@@ -44,9 +46,8 @@ public class RepulseBulletType extends BulletType {
     Draw.reset();
   }
   /*this is a thing from Flare Boss*/
-  @Override
-	public void despawned(Bullet b) {
-	  Units.nearbyEnemies(b.team, b.x, b.y, range, enemy -> {
+  public void repulse(Bullet b) {
+    Units.nearbyEnemies(b.team, b.x, b.y, range, enemy -> {
       if (enemy != null && enemy.within(b.x, b.y, range) && enemy.isValid()) {
         v1.set(b).sub(enemy).nor().scl(repulseRange * 80f);
         v1.setAngle(b.angleTo(enemy));
@@ -55,6 +56,15 @@ public class RepulseBulletType extends BulletType {
         enemy.apply(knockbackStatus, statusTime);
       }
     });
+  }
+  @Override
+  public void hit(Bullet b) {
+	  repulse(b);
+    despawnEff.at(b.x, b.y);
+	}
+  @Override
+	public void despawned(Bullet b) {
+	  repulse(b);
     despawnEff.at(b.x, b.y);
 	}
 }
