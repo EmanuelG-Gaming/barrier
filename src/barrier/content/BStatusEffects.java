@@ -17,7 +17,7 @@ public class BStatusEffects implements ContentList{
             healthMultiplier = 0.8f;
             isHidden(){
                return false;
-            }
+            };
         }};
     };
 }

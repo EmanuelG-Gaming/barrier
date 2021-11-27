@@ -16,7 +16,7 @@ public class Barrier extends Mod {
     }
     
     private final ContentList[] barrierContent = {
-        new BUnitTypes();
+        new BUnitTypes(),
         new BStatusEffects()
     };
     
