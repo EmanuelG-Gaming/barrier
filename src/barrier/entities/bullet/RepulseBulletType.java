@@ -9,6 +9,7 @@ import arc.math.geom.Vec2;
 import arc.util.*;
 import mindustry.*;
 import mindustry.content.*;
+import mindustry.type.StatusEffect;
 import mindustry.entities.*;
 import mindustry.entities.Units;
 import mindustry.entities.bullet.*;
@@ -43,13 +44,13 @@ public class RepulseBulletType extends BulletType {
   /*this is a thing from Flare Boss*/
   @Override
 	public void despawned(Bullet b) {
-	  Units.nearbyEnemies(b.owner.team, b.x, b.y, range, enemy -> {
+	  Units.nearbyEnemies(b.team, b.x, b.y, range, enemy -> {
       if (enemy != null && enemy.within(b.x, b.y, range) && enemy.isValid()) {
-        v1.set(unit).sub(enemy).nor().scl(repulseRange * 80f);
+        v1.set(b).sub(enemy).nor().scl(repulseRange * 80f);
         v1.setAngle(b.angleTo(enemy));
         enemy.impulse(v1);
-         
-        enemy.apply(statusTime, time);
+        
+        enemy.apply(statusTime, statusTime);
       }
     });
     despawnEff.at(b.x, b.y);

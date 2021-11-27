@@ -15,7 +15,7 @@ import mindustry.graphics.*;
 import mindustry.type.*;
 import arc.graphics.*;
 import arc.graphics.g2d.*;
-import arc.graphics.Lines.*;
+import arc.graphics.g2d.Lines;
 
 public class BFx {
   public static final Effect
