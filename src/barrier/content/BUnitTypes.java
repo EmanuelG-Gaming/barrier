@@ -36,13 +36,13 @@ public class BUnitTypes implements ContentList{
             region = Core.atlas.find("barrierUnit");
             weapons.add(new Weapon(""){{
                 top = false;
-                y = 1f;
-                x = 9f;
+                y = 0f;
+                x = 0f;
                 reload = 60f;
                 recoil = 4f;
                 shake = 2f;
-                ejectEffect = Fx.casing2;
-                shootSound = Sounds.artillery; /////////////////////////
+                ejectEffect = Fx.none;
+                shootSound = Sounds.wind3; /////////////////////////
                 bullet = new RepulseBulletType(2f, 500f){{
                   
                 }}:
