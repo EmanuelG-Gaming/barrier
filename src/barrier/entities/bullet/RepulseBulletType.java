@@ -40,7 +40,7 @@ public class RepulseBulletType extends BulletType {
   /*this is a thing from Flare Boss*/
   @Override
 	public void despawned(Bullet b) {
-	  Units.nearbyEnemies(b.owner.team, b.x, b.y, range, enemy => {
+	  Units.nearbyEnemies(b.owner.team, b.x, b.y, range, enemy -> {
       if (enemy != null && enemy.within(b.x, b.y, range) && enemy.isValid()) {
         v1.set(unit).sub(enemy).nor().scl(repulseRange * 80f);
         v1.setAngle(b.angleTo(enemy));
