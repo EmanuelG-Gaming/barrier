@@ -5,6 +5,7 @@ import arc.util.*;
 import arc.struct.*;
 import mindustry.ai.types.*;
 import mindustry.ctype.*;
+import mindustry.content.Fx;
 import mindustry.entities.*;
 import mindustry.entities.bullet.*;
 import mindustry.mod.*;
