@@ -13,6 +13,7 @@ import mindustry.type.*;
 import mindustry.type.ammo.*;
 import mindustry.type.weapons.*;
 import mindustry.world.meta.*;
+import barrier.entities.bullet.RepulseBulletType;
 
 public class BUnitTypes implements ContentList{
     public static UnitType
@@ -33,6 +34,19 @@ public class BUnitTypes implements ContentList{
             constructor = UnitEntity::create;
             defaultController = FlyingAI::new;
             region = Core.atlas.find("barrierUnit");
+            weapons.add(new Weapon(""){{
+                top = false;
+                y = 1f;
+                x = 9f;
+                reload = 60f;
+                recoil = 4f;
+                shake = 2f;
+                ejectEffect = Fx.casing2;
+                shootSound = Sounds.artillery; /////////////////////////
+                bullet = new RepulseBulletType(2f, 500f){{
+                  
+                }}:
+            }});
         }};
     };
 }

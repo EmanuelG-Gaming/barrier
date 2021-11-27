@@ -50,7 +50,7 @@ public class RepulseBulletType extends BulletType {
         v1.setAngle(b.angleTo(enemy));
         enemy.impulse(v1);
         
-        enemy.apply(statusTime, statusTime);
+        enemy.apply(knockbackStatus, statusTime);
       }
     });
     despawnEff.at(b.x, b.y);
