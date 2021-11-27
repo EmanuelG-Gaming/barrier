@@ -31,8 +31,9 @@ public class RepulseBulletType extends BulletType {
 		super(speed, damage);
 		layer = Layer.bullet;
 		trailColor = Pal.lancerLaser;
-		trailSize = 8.5f;
-		trailChance = 1f;
+		trailLength = 4;
+		trailWidth = 10f;
+		trailChance = 0f;
 	}
 	@Override
   public void draw(Bullet b) {
