@@ -6,8 +6,7 @@ import arc.graphics.g2d.*;
 import arc.graphics.Color;
 import arc.math.*;
 import arc.math.Mathf;
-import arc.math.geom.*;
-import arc.math.geom.Angles;
+import arc.math.Angles;
 import arc.util.*;
 import arc.util.Time;
 import mindustry.*;
@@ -37,22 +36,20 @@ public class BarrierUnitType extends UnitType{
    
    @Override
    public void drawEngine(Unit unit) {
-      if (unit instanceof UnitEntity u) {
-        float offset = engineOffset / 2f + engineOffset / 2f * unit.elevation;
-        Draw.color(engColor, secondaryColor, Mathf.absin(Time.time, 10, 1));
-        Fill.circle(
-          unit.x + Angles.trnsx(unit.rotation + 180, offset),
-          unit.y + Angles.trnsy(unit.rotation + 180, offset),
-          (u.engineScl + Mathf.absin(Time.time, 2f, u.engineScl / 4f)) * unit.elevation
-        );
-        Draw.color(secondaryColor);
-        Fill.circle(
-          unit.x + Angles.trnsx(unit.rotation + 180, offset),
-          unit.y + Angles.trnsy(unit.rotation + 180, offset),
-          (u.engineScl + Mathf.absin(Time.time, 2f, u.engineScl / 4f)) * unit.elevation / 2
-        );
-        Draw.reset();
-      }
+      float offset = engineOffset / 2f + engineOffset / 2f * unit.elevation;
+      Draw.color(engColor, secondaryColor, Mathf.absin(Time.time, 10, 1));
+      Fill.circle(
+        unit.x + Angles.trnsx(unit.rotation + 180, offset),
+        unit.y + Angles.trnsy(unit.rotation + 180, offset),
+        (engineSize + Mathf.absin(Time.time, 2f, engineSize / 4f)) * unit.elevation
+      );
+      Draw.color(secondaryColor);
+      Fill.circle(
+        unit.x + Angles.trnsx(unit.rotation + 180, offset),
+        unit.y + Angles.trnsy(unit.rotation + 180, offset),
+        (engineSize + Mathf.absin(Time.time, 2f, engineSize/ 4f)) * unit.elevation / 2
+      );
+      Draw.reset();
    }
    
    public void drawAura(Unit unit) {
@@ -62,7 +59,7 @@ public class BarrierUnitType extends UnitType{
       Lines.circle(unit.x, unit.y, size);
       for (int i = 0; i < spikes; i++) { //////////////////////////////////////////////////////////////
          float rot = (360 / spikes * i) + Mathf.sin(Time.time * 0.05f) * 45f + unit.rotation;
-         Drawf.tri(unit.x + Angles.trsnx(rot, size), unit.y + Angles.trnsy(rot, size), 4, -4, rot);
+         Drawf.tri(unit.x + Angles.trnsx(rot, size), unit.y + Angles.trnsy(rot, size), 4, -4, rot);
       }
       Draw.z();
    }
