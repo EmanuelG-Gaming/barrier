@@ -26,7 +26,7 @@ public class BFx {
      Lines.stroke(e.fout() * 40);
      Lines.circle(e.x, e.y, e.fin() * 120 + 20);
      e.scaled(30f, s -> {
-       Draw.alpha(s.fout() * 0.7f);
+       Draw.alpha(s.fout() * 0.7f + 0.1f);
        Fill.circle(e.x, e.y, 40 * s.fout() + 20);
      });
   });

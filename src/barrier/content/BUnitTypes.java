@@ -14,6 +14,7 @@ import mindustry.type.*;
 import mindustry.type.ammo.*;
 import mindustry.type.weapons.*;
 import mindustry.world.meta.*;
+import barrier.type.units.BarrierUnitType;
 import barrier.entities.bullet.RepulseBulletType;
 
 public class BUnitTypes implements ContentList{
@@ -24,7 +25,7 @@ public class BUnitTypes implements ContentList{
     @Override
     public void load(){
         
-        barrierUnit = new UnitType("barrierUnit"){{
+        barrierUnit = new BarrierUnitType("barrierUnit"){{
             flying = true;
             health = 50000f;
             speed = 3f;
@@ -32,7 +33,6 @@ public class BUnitTypes implements ContentList{
             drag = 0.01f;
             range = 160f;
             engineOffset = 7f;
-            constructor = UnitEntity::create;
             defaultController = FlyingAI::new;
             region = Core.atlas.find("barrierUnit");
             // Summit weapon
