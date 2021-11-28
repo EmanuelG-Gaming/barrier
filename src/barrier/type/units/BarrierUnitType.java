@@ -61,8 +61,8 @@ public class BarrierUnitType extends UnitType{
       float size = hitSize + 3f;
       Lines.circle(unit.x, unit.y, size);
       for (int i = 0; i < spikes; i++) { //////////////////////////////////////////////////////////////
-         float rot = (360 / spikes * i) + Mathf.sin(Time.time * 0.05) * 45 + unit.rotation;
-         Drawf.tri(unit.x + Angles.trsnx(rot, size), unit.y + Angles.trnsy(rot, size), 4, -4, rot)
+         float rot = (360 / spikes * i) + Mathf.sin(Time.time * 0.05f) * 45f + unit.rotation;
+         Drawf.tri(unit.x + Angles.trsnx(rot, size), unit.y + Angles.trnsy(rot, size), 4, -4, rot);
       }
       Draw.z();
    }
