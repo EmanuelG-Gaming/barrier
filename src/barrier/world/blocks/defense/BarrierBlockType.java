@@ -2,12 +2,11 @@ package barrier.world.blocks.defense;
 
 import mindustry.gen.*;
 import mindustry.entities.*;
-import mindustry.entities.Effect.*;
+import mindustry.entities.Effect;
+import mindustry.world.Block;
 import mindustry.world.blocks.*;
-import mindustry.world.Block.*;
-import mindustry.world.blocks.defense.Wall.*;
+import mindustry.world.blocks.defense.Wall;
 import mindustry.world.meta.*;
-import mindustry.content.*;
 
 import static mindustry.Vars.*; 
 
@@ -28,14 +27,14 @@ public class BarrierBlockType extends Wall {
   
   public class BarrierBuild extends WallBuild {
     
-    public void getRange(Block b) {
-      return b.size * tilesize + b.offset;
+    public void getRange() {
+      return size * tilesize + offset;
     }
     
     @Override
     public void updateTile(Block b) {
       super.updateTile(b);
-      Units.nearbyEnemies(b.team, b.x, b.y, getRange(b), other -> {
+      Units.nearbyEnemies(b.team, b.x, b.y, getRange(), other -> {
         if (other != null) {
           whooshEffect.at(b);
           if (other instanceof Healthc) other.damage(damage);

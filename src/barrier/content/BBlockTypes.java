@@ -6,12 +6,11 @@ import mindustry.ctype.*;
 import mindustry.gen.*;
 import mindustry.type.*;
 import mindustry.world.*;
+import mindustry.world.Block;
 import mindustry.world.blocks.*;
-import mindustry.world.blocks.defense.*;
-import mindustry.world.blocks.defense.walls.*;
-import barrier.world.blocks.defense.BarrierBlockType.*;
+import barrier.world.blocks.defense.BarrierBlockType;
 
-import static mindustry.type.ItemStack.*;
+import static mindustry.type.ItemStack;
 
 public class BBlockTypes implements ContentList {
   public static Block
