@@ -25,6 +25,7 @@ public class BarrierBlockType extends Wall {
     destructible = true;
     solid = false;
   }
+  
   @Override
   public void setStats(){
     super.setStats();
@@ -41,7 +42,7 @@ public class BarrierBlockType extends Wall {
     @Override
     public void update(Block b) {
       super.update(b);
-      Units.nearbyEnemies(.team, b.x, b.y, getRange(), other -> {
+      Units.nearbyEnemies(b.team, b.x, b.y, getRange(), other -> {
         if (other != null) {
           whooshEffect.at(b);
           if (other instanceof Healthc) other.damage(damage);
