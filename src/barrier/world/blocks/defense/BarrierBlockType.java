@@ -51,10 +51,10 @@ public class BarrierBlockType extends Wall {
       super.updateTile();
       /*this is a thing from Flare Boss yet I've also got this from RepulseBulletType.java*/
       Units.nearbyEnemies(team, x, y, size * tilesize, other -> {
-        if (enemy != null && enemy.within(b.x, b.y, range) && enemy.isValid()) {
-          v1.set(x, y).sub(enemy).nor().scl(8f * 80f);
-          v1.setAngle(this.angleTo(enemy));
-          enemy.impulse(v1);
+        if (other != null && other.within(x, y, size * tilesize) && other.isValid()) {
+          v1.set(x, y).sub(other).nor().scl(8f * 80f);
+          v1.setAngle(this.angleTo(other));
+          other.impulse(v1);
           
           if (other instanceof Healthc) other.damage(damage);
           whooshEffect.at(x, y, 0f, size * tilesize);
