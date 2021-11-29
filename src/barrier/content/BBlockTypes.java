@@ -5,12 +5,15 @@ import mindustry.*;
 import mindustry.ctype.*;
 import mindustry.gen.*;
 import mindustry.type.*;
+import mindustry.type.ItemStack;
+import mindustry.content.*;
+import mindustry.content.Items;
 import mindustry.world.*;
 import mindustry.world.Block;
 import mindustry.world.blocks.*;
+import barrier.content.*;
+import barrier.content.BFx;
 import barrier.world.blocks.defense.BarrierBlockType;
-
-import static mindustry.type.ItemStack;
 
 public class BBlockTypes implements ContentList {
   public static Block
@@ -24,7 +27,7 @@ public class BBlockTypes implements ContentList {
        hideDetails = false;
        whooshEffect = BFx.barrierRepulse;
       
-       requirements(Category.defense, BuildVisibility.editorOnly, with(Items.copper, 6, Items.graphite, 6, Items.thorium, 6));
+       requirements(Category.defense, BuildVisibility.editorOnly, ItemStack.with(Items.copper, 6, Items.graphite, 6, Items.thorium, 6));
     }};
   }
 }

@@ -1,5 +1,7 @@
 package barrier.world.blocks.defense;
 
+import mindustry.*;
+import mindustry.graphics.*;
 import mindustry.gen.*;
 import mindustry.entities.*;
 import mindustry.entities.Effect;
@@ -17,12 +19,17 @@ public class BarrierBlockType extends Wall {
   public BarrierBlockType(String name) {
     super(name);
     health = Integer.MAX_VALUE;
-    update = true;
     
     /* barrier blocks cannot be directly targeted */
     targetable = false;
     destructible = true;
     solid = false;
+  }
+  @Override
+  public void setStats(){
+    super.setStats();
+    stats.remove(Stat.health);
+    stats.add(Stat.health, l -> l.add("∞").color(Pal.health));
   }
   
   public class BarrierBuild extends WallBuild {
@@ -32,9 +39,9 @@ public class BarrierBlockType extends Wall {
     }
     
     @Override
-    public void updateTile(Block b) {
-      super.updateTile(b);
-      Units.nearbyEnemies(b.team, b.x, b.y, getRange(), other -> {
+    public void update(Block b) {
+      super.update(b);
+      Units.nearbyEnemies(.team, b.x, b.y, getRange(), other -> {
         if (other != null) {
           whooshEffect.at(b);
           if (other instanceof Healthc) other.damage(damage);
