@@ -45,9 +45,9 @@ public class BarrierUnitType extends UnitType{
       );
       Draw.color(secondaryColor);
       Fill.circle(
-        unit.x + Angles.trnsx(unit.rotation + 180, offset),
-        unit.y + Angles.trnsy(unit.rotation + 180, offset),
-        (engineSize + Mathf.absin(Time.time, 2f, engineSize/ 4f)) * unit.elevation / 2
+        unit.x + Angles.trnsx(unit.rotation + 180, offset - 1f),
+        unit.y + Angles.trnsy(unit.rotation + 180, offset - 1f),
+        (engineSize + Mathf.absin(Time.time, 2f, engineSize/ 4f)) * 2f / unit.elevation
       );
       Draw.reset();
    }
@@ -55,7 +55,7 @@ public class BarrierUnitType extends UnitType{
    public void drawAura(Unit unit) {
       Draw.color(shineColor, secondaryColor, Mathf.absin(Time.time, 10, 1));
       Draw.z(Layer.effect);
-      float size = hitSize + 3f;
+      float size = hitSize + 4.5f;
       Lines.circle(unit.x, unit.y, size);
       for (int i = 0; i < spikes; i++) { //////////////////////////////////////////////////////////////
          float rot = (360 / spikes * i) + Mathf.sin(Time.time * 0.05f) * 45f + unit.rotation;

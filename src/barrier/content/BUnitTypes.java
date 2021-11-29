@@ -26,6 +26,7 @@ public class BUnitTypes implements ContentList{
     public void load(){
         
         barrierUnit = new BarrierUnitType("barrierUnit"){{
+            hideDetails = false;
             flying = true;
             health = 50000f;
             speed = 3f;
