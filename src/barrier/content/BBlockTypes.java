@@ -27,9 +27,15 @@ public class BBlockTypes implements ContentList {
     barrier = new BarrierBlockType("barrier"){{
        size = 1;
        hideDetails = false;
-       whooshEffect = BFx.barrierRepulse;
       
        requirements(Category.defense, BuildVisibility.editorOnly, with(Items.copper, 6, Items.graphite, 6, Items.thorium, 6));
+    }};
+    
+    barrierLarge = new BarrierBlockType("barrierLarge"){{
+       size = 2;
+       hideDetails = false;
+      
+       requirements(Category.defense, BuildVisibility.editorOnly, with(Items.copper, 24, Items.graphite, 24, Items.thorium, 24));
     }};
   }
 }

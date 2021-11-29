@@ -47,7 +47,7 @@ public class BarrierUnitType extends UnitType{
       Fill.circle(
         unit.x + Angles.trnsx(unit.rotation + 180, offset - 1f),
         unit.y + Angles.trnsy(unit.rotation + 180, offset - 1f),
-        (engineSize + Mathf.absin(Time.time, 2f, engineSize/ 4f)) * 2f / unit.elevation
+        (engineSize + Mathf.absin(Time.time, 2f, engineSize/ 4f)) * unit.elevation / 2f
       );
       Draw.reset();
    }
