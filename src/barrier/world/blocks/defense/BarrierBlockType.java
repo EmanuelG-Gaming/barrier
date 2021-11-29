@@ -9,8 +9,8 @@ import mindustry.entities.*;
 import mindustry.entities.Effect;
 import mindustry.world.Block;
 import mindustry.world.blocks.*;
-import mindustry.world.blocks.defense.Wall;
 import mindustry.world.meta.*;
+import mindustry.world.blocks.defense.Wall;
 
 import static mindustry.Vars.*; 
 
