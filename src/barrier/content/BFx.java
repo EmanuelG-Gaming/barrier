@@ -31,8 +31,9 @@ public class BFx {
      });
   }),
   barrierRepulse = new Effect(60f, e -> {
+    if (!(e.data instanceof Float fl)) return;
     float alpha = Interp.pow5Out.apply(e.fout()) + 0.4f;
-    float radius = e.data * e.finpow();
+    float radius = e.finpow() * fl;
     Draw.color(Pal.lancerLaser, Color.white, e.fin());
     Draw.alpha(alpha);
     Lines.square(e.x, e.y, radius);

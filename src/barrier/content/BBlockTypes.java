@@ -20,7 +20,7 @@ import static mindustry.type.ItemStack.with;
 public class BBlockTypes implements ContentList {
   public static Block
   
-  barrier;
+  barrier, barrierLarge;
 
   @Override
   public void load() {
