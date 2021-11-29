@@ -29,7 +29,7 @@ public class BFx {
        Draw.alpha(s.fout() * 0.7f + 0.15f);
        Fill.circle(e.x, e.y, 40 * s.fout() + 20);
      });
-  });
+  }),
   barrierRepulse = new Effect(60f, e -> {
     float alpha = Interp.pow5Out.apply(e.fout()) + 0.1f;
     float radius = e.finpow() * (8f / 2) + 2;
