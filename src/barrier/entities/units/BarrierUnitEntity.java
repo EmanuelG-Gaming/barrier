@@ -17,8 +17,9 @@ import static mindustry.Vars.*;
 
 public class BarrierUnitEntity extends UnitEntity {
    public BulletType releaseBullet = BBulletTypes.repulsiveBulletSmall;
-   public int releaseBullets = 36;
+   public int releaseBullets = 16;
    public int releasesDuringKill = 15;
+   public float speedScl = 3f;
    public Sound releaseSound = Sounds.missile;
    
    @Override
@@ -39,20 +40,22 @@ public class BarrierUnitEntity extends UnitEntity {
    @Override
    public void destroy() {
       for (int i = 0; i < releaseBullets; i++) {
-         humiliate();
+         humiliateSpeed();
       }
       super.destroy();
    }
    
    @Override
    public void remove() {
-      for (int i = 0; i < releaseBullets; i++) {
-         humiliate();
-      }
       super.remove();
    }
    
    public void humiliate() {
       releaseBullet.create(this, team, x, y, rotation + Mathf.range(360f));
+   }
+   
+   /*like humiliate() but the bullets have random speeds*/
+   public void humiliateSpeed() {
+      releaseBullet.create(this, team, x, y, rotation + Mathf.range(360f), Mathf.range(speedScl));
    }
 }

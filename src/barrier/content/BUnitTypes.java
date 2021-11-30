@@ -33,7 +33,7 @@ public class BUnitTypes implements ContentList{
             speed = 3.4f;
             accel = 0.08f;
             drag = 0.01f;
-            range = 300f;
+            range = 160f;
             engineOffset = 7f;
             defaultController = FlyingAI::new;
             ammoType = new PowerAmmoType(1550);
