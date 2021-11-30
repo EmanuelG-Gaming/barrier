@@ -16,6 +16,7 @@ import mindustry.type.weapons.*;
 import mindustry.world.meta.*;
 import barrier.type.units.BarrierUnitType;
 import barrier.content.*;
+import barrier.entities.bullet.RepulseBulletType;
 
 public class BUnitTypes implements ContentList{
     public static UnitType
