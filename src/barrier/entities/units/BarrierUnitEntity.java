@@ -20,7 +20,7 @@ public class BarrierUnitEntity extends UnitEntity {
    public Sound releaseSound = Sounds.none;
    
    @Override
-   public void killed() {
+   public void kill() {
       Events.run(Trigger.update, () -> {
          if (!(state.isPaused())) {
             if (Mathf.chanceDelta(0.18f)) {

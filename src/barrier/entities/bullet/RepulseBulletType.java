@@ -21,7 +21,7 @@ import barrier.content.BStatusEffects;
 public class RepulseBulletType extends BulletType {
 	public float repulseRange = 50f;
 	public float rang = 120f;
-	public float damage = 0f;
+	public float repulseDamage = 0f;
 	public float size = 10f;
 	public StatusEffect knockbackStatus = BStatusEffects.severed;
 	public float statusTime = 400f;
@@ -56,7 +56,7 @@ public class RepulseBulletType extends BulletType {
         v1.setAngle(b.angleTo(enemy));
         enemy.impulse(v1);
         
-        if (enemy instanceof Healthc) enemy.damage(damage);
+        if (enemy instanceof Healthc) enemy.damage(repulseDamage);
         enemy.apply(knockbackStatus, statusTime);
       }
     });

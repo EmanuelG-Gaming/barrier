@@ -12,7 +12,6 @@ public class BBulletTypes implements ContentList{
     
     @Override
     public void load() {
-       
        repulsiveBulletSmall = new RepulseBulletType(2.25f, 100f){{
            size = 6f;
            rang = 60f;

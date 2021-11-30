@@ -29,7 +29,7 @@ public class BarrierUnitType extends UnitType{
   
    public BarrierUnitType(String name) {
 	  	super(name);
-	  	constructor = BarrierUnitEntity::create;
+	  	constructor = BarrierUnitEntity::new;
 	  	onTitleScreen = false;
 	  	deathSound = Sounds.corexplode;
    }

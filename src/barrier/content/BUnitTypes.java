@@ -39,9 +39,8 @@ public class BUnitTypes implements ContentList{
             ammoType = new PowerAmmoType(1550);
             
             region = Core.atlas.find("barrierUnit");
-            // Summit weapon
-            /*
-            weapons.add(new Weapon("summit"){{ // idk why is this necessary
+            // Summit wep
+            weapons.add(new Weapon("summit"){{
                 top = false;
                 y = 0f;
                 x = 0f;
@@ -53,7 +52,6 @@ public class BUnitTypes implements ContentList{
                 bullet = new RepulseBulletType(3f, 500f){{
                 }};
             }});
-            */
         }};
     };
 }

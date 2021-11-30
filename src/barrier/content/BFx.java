@@ -43,18 +43,18 @@ public class BFx {
   }),
   
   barrierRepulse = new Effect(60f, e -> {
-    float alpha = Interp.pow5Out.apply(e.fout()) + 0.4f;
+    float alpha = Interp.pow5Out.apply(e.fslope()) + 0.3f;
     float radius = e.finpow() * e.rotation;
     Draw.color(Pal.lancerLaser, Color.white, e.fin());
     Draw.alpha(alpha);
-    Lines.square(e.x, e.y, radius);
-    Draw.alpha(alpha - 0.2f);
-    Fill.square(e.x, e.y, radius);
-  }).layer(Layer.block + 0.01f),
+    Lines.square(e.x, e.y, radius / 2f);
+    Draw.alpha(alpha - 0.4f);
+    Fill.square(e.x, e.y, radius / 2f);
+  }),
   
   severedWounds = new Effect(60f, e -> {
     Draw.color(Pal.health);
     Draw.alpha(Interp.pow5Out.apply(e.fslope()));
-    Fill.circle(e.x, e.y, 2.4f * e.fout() + 1f);
+    Fill.circle(e.x, e.y, 2.4f * e.fout() + 0.7f);
   }).layer(Layer.flyingUnit + 0.01f);
 }

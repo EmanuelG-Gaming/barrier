@@ -21,5 +21,5 @@ public class BStatusEffects implements ContentList{
             damage = 0.8f;
             effect = BFx.severedWounds;
         }};
-    };
+    }
 }

@@ -23,6 +23,7 @@ import static mindustry.Vars.*;
 public class BarrierBlockType extends Wall {
   public Effect whooshEffect = BFx.barrierRepulse;
   public float damage = 15f;
+  public float repulseForce = 8f;
  
 	private static final Vec2 v1 = new Vec2();
 	
@@ -39,10 +40,11 @@ public class BarrierBlockType extends Wall {
   }
   
   @Override
-  public void setStats(){
-    super.setStats();
-    stats.remove(Stat.health);
-    stats.add(Stat.health, l -> l.add("∞").color(Pal.health));
+  public void setStats() {
+     super.setStats();
+     stats.remove(Stat.health);
+     stats.add(Stat.health, l -> l.add("aleph null").color(Pal.health)); ///////////////////////////////////////
+     stats.add(Stat.abilities, l -> l.add("Force: " + repulseForce));
   }
   
   public class BarrierBuild extends WallBuild {
@@ -58,9 +60,9 @@ public class BarrierBlockType extends Wall {
       /*this is a thing from Flare Boss yet I've also got this from RepulseBulletType.java*/
       Units.nearbyEnemies(team, x, y, size * tilesize, other -> {
         if (other != null && other.within(x, y, size * tilesize) && other.isValid()) {
-          v1.set(x, y).sub(other).nor().scl(8f * 80f);
+          v1.set(x, y).sub(other).nor().scl(repulseForce * 80f);
           v1.setAngle(this.angleTo(other));
-          other.impulse(v1);
+          other.move(v1.x, v1.y);
           
           if (other instanceof Healthc) other.damage(damage);
           whooshEffect.at(x, y, size * tilesize);
