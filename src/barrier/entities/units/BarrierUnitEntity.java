@@ -24,7 +24,7 @@ public class BarrierUnitEntity extends UnitEntity {
    @Override
    public void kill() {
      for (int i = 0; i < releasesDuringKill; i++) {
-        Time.run(9f * i;, () -> {
+        Time.run(9f * i, () -> {
            if (!(state.isPaused())) {
               if (Mathf.chanceDelta(0.45f)) {
                  releaseSound.at(x, y);
