@@ -18,7 +18,7 @@ public class BBulletTypes implements ContentList{
        
        repulsiveBulletSmall = new RepulseBulletType(2.25f, 100f){{
            size = 6f;
-           range = 60f;
+           rang = 60f;
            repulseRange = 25f;
            statusTime = 150f;
            

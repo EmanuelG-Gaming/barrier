@@ -20,7 +20,7 @@ import barrier.content.BStatusEffects;
 
 public class RepulseBulletType extends BulletType {
 	public float repulseRange = 50f;
-	public float range = 120f;
+	public float rang = 120f;
 	public float damage = 0f;
 	public float size = 10f;
 	public StatusEffect knockbackStatus = BStatusEffects.severed;
@@ -50,8 +50,8 @@ public class RepulseBulletType extends BulletType {
   
   /*this is a thing from Flare Boss*/
   public void repulse(Bullet b) {
-    Units.nearbyEnemies(b.team, b.x, b.y, range, enemy -> {
-      if (enemy != null && enemy.within(b.x, b.y, range) && enemy.isValid()) {
+    Units.nearbyEnemies(b.team, b.x, b.y, rang, enemy -> {
+      if (enemy != null && enemy.within(b.x, b.y, rang) && enemy.isValid()) {
         v1.set(b).sub(enemy).nor().scl(repulseRange * 80f);
         v1.setAngle(b.angleTo(enemy));
         enemy.impulse(v1);
