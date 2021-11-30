@@ -1,11 +1,10 @@
 package barrier.content;
 
-import arc.*;
-import arc.graphics.*;
+import mindustry.*;
 import mindustry.graphics.*; 
 import mindustry.ctype.*;
 import mindustry.type.*;
-import mindustry.*;
+import barrier.content.BFx;
 
 public class BStatusEffects implements ContentList{
     public static StatusEffect
@@ -20,6 +19,7 @@ public class BStatusEffects implements ContentList{
             speedMultiplier = 1.3f;
             healthMultiplier = 0.6f;
             damage = 0.8f;
+            effect = BFx.severedWounds;
         }};
     };
 }

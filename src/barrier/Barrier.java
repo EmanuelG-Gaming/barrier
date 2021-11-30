@@ -23,8 +23,6 @@ public class Barrier extends Mod {
     
     @Override
     public void loadContent(){
-        for(ContentList list : barrierContent){
-            list.load();
-        };
+        for (ContentList list : barrierContent) list.load();
     }
 }

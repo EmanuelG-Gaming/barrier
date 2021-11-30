@@ -16,16 +16,23 @@ import mindustry.type.UnitType;
 import mindustry.entities.*;
 import mindustry.graphics.*;
 
+import static mindustry.Vars.*; 
+
 public class BarrierUnitType extends UnitType{
   public Color shineColor = Pal.lancerLaser;
   public Color engColor = Pal.spore;
   public Color secondaryColor = Color.white;
   
   public int spikes = 4;
+  
+  public Bullet releaseBullet = BBulletTypes.smallRepulsiveBullet;
+  public int releaseBullets = 36;
+ 
    public BarrierUnitType(String name) {
 	  	super(name);
 	  	constructor = UnitEntity::create;
 	  	onTitleScreen = false;
+	  	deathSound = Sounds.corexplode;
    }
    
    @Override
@@ -57,10 +64,41 @@ public class BarrierUnitType extends UnitType{
       Draw.z(Layer.effect);
       float size = hitSize + 4.5f;
       Lines.circle(unit.x, unit.y, size);
-      for (int i = 0; i < spikes; i++) { //////////////////////////////////////////////////////////////
+      for (int i = 0; i < spikes; i++) {
          float rot = (360 / spikes * i) + Mathf.sin(Time.time * 0.05f) * 45f + unit.rotation;
          Drawf.tri(unit.x + Angles.trnsx(rot, size), unit.y + Angles.trnsy(rot, size), 4, -4, rot);
       }
       Draw.z();
+   }
+   
+   public void humiliate(Unit unit) {
+      releaseBullet.create(unit, unit.team, unit.x, unit.y, unit.rotation + Mathf.range(360), Mathf.range(2.5));
+   }
+   
+   @Override
+   public void killed() {
+      Events.on(Trigger.update.class, () -> {
+         if (!(state.isPaused())) {
+            if (Mathf.chanceDelta(0.18f)) {
+               releaseSound.at(this);
+               humiliate(this);
+            }
+         }
+      });
+   }
+   
+   @Override
+   public void destroy() {
+      for (int i = 0; i < releaseBullets; i++) {
+         humiliate(this);
+      }
+      deathSound.at(x, y);
+   }
+   
+   @Override
+   public void remove() {
+      for (int i = 0; i < releaseBullets; i++) {
+         humiliate(this);
+      }
    }
 }

@@ -35,6 +35,7 @@ public class BarrierBlockType extends Wall {
     targetable = false;
     destructible = true;
     solid = false;
+    alwaysReplace = false;
   }
   
   @Override
@@ -47,6 +48,11 @@ public class BarrierBlockType extends Wall {
   public class BarrierBuild extends WallBuild {
     
     @Override
+    public void drawCracks() {
+       // kisma a-
+    }
+    
+    @Override
     public void updateTile() {
       super.updateTile();
       /*this is a thing from Flare Boss yet I've also got this from RepulseBulletType.java*/
@@ -57,7 +63,7 @@ public class BarrierBlockType extends Wall {
           other.impulse(v1);
           
           if (other instanceof Healthc) other.damage(damage);
-          whooshEffect.at(x, y, 0f, size * tilesize);
+          whooshEffect.at(x, y, size * tilesize);
           
           Log.info("Repulse");
         }

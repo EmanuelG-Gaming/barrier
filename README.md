@@ -1,5 +1,5 @@
 # Barrier
-A Java mod for Mindustry. Adds one new unit at the moment.
+A Java mod for Mindustry. Features a Barrier Unit (or Rejection, Humiliation, what you'll call it), two Wðls and even a status effect.
 
 ## Building for Desktop Testing
 

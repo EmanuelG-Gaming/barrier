@@ -11,11 +11,11 @@ import mindustry.entities.bullet.*;
 import mindustry.mod.*;
 import mindustry.gen.*;
 import mindustry.type.*;
-import mindustry.type.ammo.*;
+import mindustry.type.ammo.PowerAmmoType;
 import mindustry.type.weapons.*;
 import mindustry.world.meta.*;
 import barrier.type.units.BarrierUnitType;
-import barrier.entities.bullet.RepulseBulletType;
+import barrier.content.*;
 
 public class BUnitTypes implements ContentList{
     public static UnitType
@@ -28,27 +28,27 @@ public class BUnitTypes implements ContentList{
         barrierUnit = new BarrierUnitType("barrierUnit"){{
             hideDetails = false;
             flying = true;
-            health = 50000f;
-            speed = 3f;
+            health = 45000f;
+            speed = 3.4f;
             accel = 0.08f;
             drag = 0.01f;
-            range = 160f;
+            range = 300f;
             engineOffset = 7f;
             defaultController = FlyingAI::new;
+            ammoType = new PowerAmmoType(1550);
+            
             region = Core.atlas.find("barrierUnit");
             // Summit weapon
-            weapons.add(new Weapon(""){{
+            weapons.add(new Weapon("summit"){{ // idk why is this necessary
                 top = false;
                 y = 0f;
                 x = 0f;
-                reload = 60f;
+                reload = 100f;
                 recoil = 4f;
                 shake = 2f;
                 ejectEffect = Fx.none;
-                shootSound = Sounds.wind3;
-                bullet = new RepulseBulletType(3f, 500f){{
-                  
-                }};
+                shootSound = Sounds.release;
+                bullet = BBulletTypes.repulsiveBullet;
             }});
         }};
     };

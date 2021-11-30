@@ -1,8 +1,9 @@
 displayName: "Barrier"
 name: "barrier"
-author: "Emanuel G"
+author: "Emanuel G or Antumbra"
 main: "barrier.Barrier"
-description: "Adds a Barrier-related unit. Thanks to Sh1p for the Severed status sprite."
-version: 0.1
+description: "Adds a Barrier-related unit and other things. Thanks to Sh1p for the Severed status sprite."
+version: 0.6
 minGameVersion: 129
+hidden: false
 java: true
