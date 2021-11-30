@@ -60,7 +60,7 @@ public class BarrierBlockType extends Wall {
       /*this is a thing from Flare Boss yet I've also got this from RepulseBulletType.java*/
       Units.nearbyEnemies(team, x, y, size * tilesize, other -> {
         if (other != null && other.within(x, y, size * tilesize) && other.isValid()) {
-          v1.set(x, y).sub(other).nor().scl(repulseForce * 80f);
+          v1.set(x, y).sub(other).nor().scl(repulseForce);
           v1.setAngle(this.angleTo(other));
           other.move(v1.x, v1.y);
           

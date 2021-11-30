@@ -4,9 +4,10 @@ import arc.*;
 import arc.audio.*;
 import arc.math.*;
 import arc.math.Mathf;
+import arc.util.*;
+import arc.util.Time;
 import mindustry.*;
 import mindustry.game.*;
-import mindustry.game.EventType.*;
 import mindustry.gen.*;
 import mindustry.entities.bullet.*;
 import barrier.content.*;
@@ -17,18 +18,22 @@ import static mindustry.Vars.*;
 public class BarrierUnitEntity extends UnitEntity {
    public BulletType releaseBullet = BBulletTypes.repulsiveBulletSmall;
    public int releaseBullets = 36;
-   public Sound releaseSound = Sounds.none;
+   public int releasesDuringKill = 15;
+   public Sound releaseSound = Sounds.missile;
    
    @Override
    public void kill() {
-      Events.run(Trigger.update, () -> {
-         if (!(state.isPaused())) {
-            if (Mathf.chanceDelta(0.18f)) {
-               releaseSound.at(x, y);
-               humiliate();
-            }
-         }
-      });
+     for (int i = 0; i < releasesDuringKill; i++) {
+        Time.run(9f * i;, () -> {
+           if (!(state.isPaused())) {
+              if (Mathf.chanceDelta(0.45f)) {
+                 releaseSound.at(x, y);
+                 humiliate();
+              }
+           }
+        });
+     }
+     super.kill();
    }
    
    @Override
@@ -36,6 +41,7 @@ public class BarrierUnitEntity extends UnitEntity {
       for (int i = 0; i < releaseBullets; i++) {
          humiliate();
       }
+      super.destroy();
    }
    
    @Override
@@ -43,6 +49,7 @@ public class BarrierUnitEntity extends UnitEntity {
       for (int i = 0; i < releaseBullets; i++) {
          humiliate();
       }
+      super.remove();
    }
    
    public void humiliate() {
