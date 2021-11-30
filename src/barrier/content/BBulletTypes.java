@@ -8,13 +8,10 @@ public class BBulletTypes implements ContentList{
     public static BulletType
     
     // Repulsive bullets
-    repulsiveBullet, repulsiveBulletSmall;
+    repulsiveBulletSmall;
     
     @Override
     public void load() {
-      
-       repulsiveBullet = new RepulseBulletType(3f, 500f){{
-       }};
        
        repulsiveBulletSmall = new RepulseBulletType(2.25f, 100f){{
            size = 6f;

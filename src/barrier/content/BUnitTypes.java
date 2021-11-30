@@ -48,7 +48,8 @@ public class BUnitTypes implements ContentList{
                 shake = 2f;
                 ejectEffect = Fx.none;
                 shootSound = Sounds.release;
-                bullet = BBulletTypes.repulsiveBullet;
+                bullet = new RepulseBulletType(3f, 500f){{
+                }};
             }});
         }};
     };
