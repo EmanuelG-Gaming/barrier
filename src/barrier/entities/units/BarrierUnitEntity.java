@@ -8,6 +8,7 @@ import mindustry.*;
 import mindustry.game.*;
 import mindustry.game.EventType.*;
 import mindustry.gen.*;
+import mindustry.entities.bullet.*;
 import barrier.content.*;
 import barrier.content.BBulletTypes;
 
@@ -19,32 +20,32 @@ public class BarrierUnitEntity extends UnitEntity {
    public Sound releaseSound = Sounds.none;
    
    @Override
-   public void killed(Unit unit) {
+   public void killed() {
       Events.run(Trigger.update, () -> {
          if (!(state.isPaused())) {
             if (Mathf.chanceDelta(0.18f)) {
-               releaseSound.at(unit.x, unit.y);
-               humiliate(unit);
+               releaseSound.at(x, y);
+               humiliate();
             }
          }
       });
    }
    
    @Override
-   public void destroy(Unit unit) {
+   public void destroy() {
       for (int i = 0; i < releaseBullets; i++) {
-         humiliate(unit);
+         humiliate();
       }
    }
    
    @Override
-   public void remove(Unit unit) {
+   public void remove() {
       for (int i = 0; i < releaseBullets; i++) {
-         humiliate(unit);
+         humiliate();
       }
    }
    
-   public void humiliate(Unit unit) {
-      releaseBullet.create(unit, unit.team, unit.x, unit.y, unit.rotation + Mathf.range(360f));
+   public void humiliate() {
+      releaseBullet.create(this, team, x, y, rotation + Mathf.range(360f));
    }
 }
