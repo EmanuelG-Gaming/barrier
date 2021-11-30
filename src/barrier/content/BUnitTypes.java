@@ -40,6 +40,7 @@ public class BUnitTypes implements ContentList{
             
             region = Core.atlas.find("barrierUnit");
             // Summit weapon
+            /*
             weapons.add(new Weapon("summit"){{ // idk why is this necessary
                 top = false;
                 y = 0f;
@@ -49,11 +50,10 @@ public class BUnitTypes implements ContentList{
                 shake = 2f;
                 ejectEffect = Fx.none;
                 shootSound = Sounds.release;
-                /*
                 bullet = new RepulseBulletType(3f, 500f){{
                 }};
-                */
             }});
+            */
         }};
     };
 }
