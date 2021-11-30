@@ -20,8 +20,6 @@ import mindustry.entities.bullet.*;
 import mindustry.graphics.*;
 import barrier.entities.units.BarrierUnitEntity;
 
-import static mindustry.Vars.*; 
-
 public class BarrierUnitType extends UnitType{
   public Color shineColor = Pal.lancerLaser;
   public Color engColor = Pal.spore;

@@ -11,8 +11,10 @@ import mindustry.gen.*;
 import barrier.content.*;
 import barrier.content.BBulletTypes;
 
+import static mindustry.Vars.*;
+
 public class BarrierUnitEntity extends UnitEntity {
-   public Bullet releaseBullet = BBulletTypes.repulsiveBulletSmall;
+   public BulletType releaseBullet = BBulletTypes.repulsiveBulletSmall;
    public int releaseBullets = 36;
    public Sound releaseSound = Sounds.none;
    
@@ -33,7 +35,6 @@ public class BarrierUnitEntity extends UnitEntity {
       for (int i = 0; i < releaseBullets; i++) {
          humiliate(unit);
       }
-      deathSound.at(unit.x, unit.y);
    }
    
    @Override
