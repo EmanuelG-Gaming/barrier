@@ -23,7 +23,7 @@ public class BarrierUnitEntity extends UnitEntity {
    public BulletType releaseBullet = BBulletTypes.repulsiveBulletSmall;
    public int releaseBullets = 16;
    public int releasesDuringKill = 15;
-   public float speedScl = 3f;
+   public float speedScl = 3.2f;
    public Sound releaseSound = Sounds.missile;
    public Effect destroyShockwave = Fx.spawnShockwave;
    
@@ -44,10 +44,11 @@ public class BarrierUnitEntity extends UnitEntity {
    
    @Override
    public void destroy() {
-      destroyShockwave.at(x, y, 40);
+      destroyShockwave.at(x, y, 70);
       for (int i = 0; i < releaseBullets; i++) {
          humiliateSpeed();
       }
+      showToast(Core.atlas.find("barrier-barrierUnit" + "-full"), "Rejection is dead.");
       super.destroy();
    }
    
