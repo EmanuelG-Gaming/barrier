@@ -11,6 +11,8 @@ import mindustry.game.*;
 import mindustry.gen.*;
 import mindustry.content.*;
 import mindustry.content.Fx;
+import mindustry.entities.*;
+import mindustry.entities.Effect;
 import mindustry.entities.bullet.*;
 import barrier.content.*;
 import barrier.content.BBulletTypes;
