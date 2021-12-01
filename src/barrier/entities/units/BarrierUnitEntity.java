@@ -53,7 +53,7 @@ public class BarrierUnitEntity extends UnitEntity {
       for (int i = 0; i < releaseBullets; i++) {
          humiliateSpeed();
       }
-      ui.hudfrag.showToast(Icon.warning, toastUnit.emoji() + " " + Core.bundle.format("barrier-isDead", toastUnit.localizedName));
+      ui.hudfrag.showToast(toastUnit.region, Core.bundle.format("barrier.isDead", toastUnit.localizedName));
       super.destroy();
    }
    
