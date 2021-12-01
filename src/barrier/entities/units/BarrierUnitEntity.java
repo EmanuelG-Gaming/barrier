@@ -9,6 +9,8 @@ import arc.util.Time;
 import mindustry.*;
 import mindustry.game.*;
 import mindustry.gen.*;
+import mindustry.content.*;
+import mindustry.content.Fx;
 import mindustry.entities.bullet.*;
 import barrier.content.*;
 import barrier.content.BBulletTypes;
@@ -21,6 +23,7 @@ public class BarrierUnitEntity extends UnitEntity {
    public int releasesDuringKill = 15;
    public float speedScl = 3f;
    public Sound releaseSound = Sounds.missile;
+   public Effect destroyShockwave = Fx.spawnShockwave;
    
    @Override
    public void kill() {
@@ -39,6 +42,7 @@ public class BarrierUnitEntity extends UnitEntity {
    
    @Override
    public void destroy() {
+      destroyShockwave.at(x, y, 40);
       for (int i = 0; i < releaseBullets; i++) {
          humiliateSpeed();
       }
