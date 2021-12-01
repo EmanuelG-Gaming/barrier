@@ -11,11 +11,14 @@ import mindustry.game.*;
 import mindustry.gen.*;
 import mindustry.content.*;
 import mindustry.content.Fx;
+import mindustry.type.*;
+import mindustry.type.UnitType;
 import mindustry.entities.*;
 import mindustry.entities.Effect;
 import mindustry.entities.bullet.*;
 import barrier.content.*;
 import barrier.content.BBulletTypes;
+import barrier.content.BUnitTypes;
 
 import static mindustry.Vars.*;
 
@@ -26,6 +29,8 @@ public class BarrierUnitEntity extends UnitEntity {
    public float speedScl = 3.2f;
    public Sound releaseSound = Sounds.missile;
    public Effect destroyShockwave = Fx.spawnShockwave;
+   
+   private UnitType toastUnit = BUnitTypes.barrierUnit;
    
    @Override
    public void kill() {
@@ -48,7 +53,7 @@ public class BarrierUnitEntity extends UnitEntity {
       for (int i = 0; i < releaseBullets; i++) {
          humiliateSpeed();
       }
-      showToast(Core.atlas.find("barrier-barrierUnit" + "-full"), "Rejection is dead.");
+      showToast(Icon.warning, toastUnit.emoji() + " " + Core.bundle.format("barrier-isDead", toastUnit.localizedName));
       super.destroy();
    }
    
