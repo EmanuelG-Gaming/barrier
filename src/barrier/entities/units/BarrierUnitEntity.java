@@ -30,7 +30,7 @@ public class BarrierUnitEntity extends UnitEntity {
    public Sound releaseSound = Sounds.missile;
    public Effect destroyShockwave = Fx.spawnShockwave;
    
-   private UnitType toastUnit = BUnitTypes.barrierUnit;
+   private static UnitType toastUnit = BUnitTypes.barrierUnit;
    
    @Override
    public void kill() {
@@ -53,7 +53,7 @@ public class BarrierUnitEntity extends UnitEntity {
       for (int i = 0; i < releaseBullets; i++) {
          humiliateSpeed();
       }
-      showToast(Icon.warning, toastUnit.emoji() + " " + Core.bundle.format("barrier-isDead", toastUnit.localizedName));
+      ui.hudfrag.showToast(Icon.warning, toastUnit.emoji() + " " + Core.bundle.format("barrier-isDead", toastUnit.localizedName));
       super.destroy();
    }
    
