@@ -57,8 +57,8 @@ public class BarrierUnitEntity extends UnitEntity {
       for (int i = 0; i < releaseBullets; i++) {
          humiliateSpeed();
       }
-      float windx = Mathf.range(1) * world.width, windy = Mathf.range(1) * world.height;
-      Calls.createWeather(weather, 1 + Mathf.range(4.5), weatherTime + Mathf.range(500f), windx, windy);
+      float windx = Mathf.range(1f) * world.width(), windy = Mathf.range(1f) * world.height();
+      Call.createWeather(weather, 1 + Mathf.range(4.5f), weatherTime + Mathf.range(500f), windx, windy);
       ui.hudfrag.showToast(Icon.warning, toastUnit.emoji() + " " + Core.bundle.format("barrier.isDead", toastUnit.localizedName));
       super.destroy();
    }
