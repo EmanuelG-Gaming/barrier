@@ -11,8 +11,10 @@ import mindustry.game.*;
 import mindustry.gen.*;
 import mindustry.content.*;
 import mindustry.content.Fx;
+import mindustry.content.Weathers;
 import mindustry.type.*;
 import mindustry.type.UnitType;
+import mindustry.type.Weather;
 import mindustry.entities.*;
 import mindustry.entities.Effect;
 import mindustry.entities.bullet.*;
@@ -29,6 +31,8 @@ public class BarrierUnitEntity extends UnitEntity {
    public float speedScl = 3.2f;
    public Sound releaseSound = Sounds.missile;
    public Effect destroyShockwave = Fx.spawnShockwave;
+   public Weather weather = Weathers.suspendParticles;
+   public float weatherTime = 1600f;
    
    private static UnitType toastUnit = BUnitTypes.barrierUnit;
    
@@ -53,6 +57,8 @@ public class BarrierUnitEntity extends UnitEntity {
       for (int i = 0; i < releaseBullets; i++) {
          humiliateSpeed();
       }
+      float windx = Mathf.range(1) * world.width, windy = Mathf.range(1) * world.height;
+      Calls.createWeather(weather, 1 + Mathf.range(4.5), weatherTime + Mathf.range(500f), windx, windy);
       ui.hudfrag.showToast(Icon.warning, toastUnit.emoji() + " " + Core.bundle.format("barrier.isDead", toastUnit.localizedName));
       super.destroy();
    }
