@@ -32,7 +32,7 @@ public class BarrierUnitEntity extends UnitEntity {
    public Sound releaseSound = Sounds.missile;
    public Effect destroyShockwave = Fx.spawnShockwave;
    public Weather weather = Weathers.suspendParticles;
-   public float weatherTime = 1600f;
+   public float weatherTime = 9600f;
    
    private static UnitType toastUnit = BUnitTypes.barrierUnit;
    
@@ -58,7 +58,7 @@ public class BarrierUnitEntity extends UnitEntity {
          humiliateSpeed();
       }
       float windx = Mathf.range(1f) * world.width(), windy = Mathf.range(1f) * world.height();
-      Call.createWeather(weather, 1 + Mathf.range(4.5f), weatherTime + Mathf.range(500f), windx, windy);
+      Call.createWeather(weather, 1 + Mathf.range(1.5f), weatherTime + Mathf.range(1600f), windx, windy);
       ui.hudfrag.showToast(Icon.warning, toastUnit.emoji() + " " + Core.bundle.format("barrier.isDead", toastUnit.localizedName));
       super.destroy();
    }
