@@ -51,12 +51,12 @@ public class BPlanets implements ContentList {
     
     @Override
     public void load() {
-       sUp = createPlanet("Shut", Planets.sun, 3, 1f, () -> new HexMesh(sUp, 6));
+       sUp = createPlanet("Shut", Planets.sun, 3, 1f, () -> new HexMesh(this, 6));
        sUp.hasAtmosphere = true;
        sUp.atmosphereColor = Pal.spore;
        sUp.atmosphereRadIn = 0.036f;
        sUp.atmosphereRadOut = 0.35f;
-       sUp.startSector = 14;
+       sUp.startSector = 36;
        sUp.alwaysUnlocked = true;
     }
 }

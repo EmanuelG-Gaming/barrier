@@ -11,9 +11,8 @@ public class BSectorPresets implements ContentList{
     public void load(){
         //region shut
 
-        ignorance = new SectorPreset("ignorance", BPlanets.sUp, 14){{
+        ignorance = new SectorPreset("ignorance", BPlanets.sUp, 36){{
             alwaysUnlocked = true;
-            addStartingItems = true;
             captureWave = 10;
             difficulty = 1;
         }};
