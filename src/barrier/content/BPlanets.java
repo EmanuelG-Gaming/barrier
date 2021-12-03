@@ -51,7 +51,7 @@ public class BPlanets implements ContentList {
     
     @Override
     public void load() {
-       sUp = createPlanet("Shut", Planets.sun, 3, 1f, () -> new HexMesh(this, 6));
+       sUp = createPlanet("shut", Planets.sun, 3, 1f, () -> new HexMesh(sUp, 6));
        sUp.hasAtmosphere = true;
        sUp.atmosphereColor = Pal.spore;
        sUp.atmosphereRadIn = 0.036f;
