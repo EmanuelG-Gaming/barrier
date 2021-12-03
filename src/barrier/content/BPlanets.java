@@ -22,7 +22,7 @@ public class BPlanets implements ContentList {
         Planet returnPlanet = null;
         try{
             Class[] type = { String.class, Planet.class, null, null };
-            if (Version.isAtLeast("132")) {
+            if (Version.build >= 132) {
                 type[2] = float.class;
                 type[3] = int.class;
                 returnPlanet = (Planet) classDefinition.getConstructor(type).newInstance(name, planet, radius, sectorSize);
@@ -51,12 +51,12 @@ public class BPlanets implements ContentList {
     
     @Override
     public void load() {
-       sUp = createPlanet("shut up", Planets.sun, 3, 1f, () -> new HexMesh(shutUp, 6));
+       sUp = createPlanet("Shut", Planets.sun, 3, 1f, () -> new HexMesh(sUp, 6));
        sUp.hasAtmosphere = true;
        sUp.atmosphereColor = Pal.spore;
        sUp.atmosphereRadIn = 0.036f;
        sUp.atmosphereRadOut = 0.35f;
-       sUp.startSector = 1;
+       sUp.startSector = 14;
        sUp.alwaysUnlocked = true;
     }
 }
