@@ -19,9 +19,9 @@ public class Barrier extends Mod {
         new BBlockTypes(),
         new BUnitTypes(),
         new BBulletTypes(),
-        new BStatusEffects(),
-        new BSectorPresets(),
-        new BPlanets()
+        new BStatusEffects()
+        //new BSectorPresets(),
+        //new BPlanets()
     };
     
     @Override
