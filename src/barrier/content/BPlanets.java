@@ -23,18 +23,16 @@ public class BPlanets implements ContentList {
         Planet returnPlanet = null;
         try{
             Class[] type = { String.class, Planet.class, null, null };
-            if (Version.build >= 132) {
+            if (Version.isAtLeast("132")) {
                 type[2] = float.class;
                 type[3] = int.class;
                 returnPlanet = (Planet) classDefinition.getConstructor(type).newInstance(name, planet, radius, sectorSize);
-            }
-            else {
+            } else {
                 type[2] = int.class;
                 type[3] = float.class;
                 returnPlanet = (Planet) classDefinition.getConstructor(type).newInstance(name, planet, sectorSize, radius);
             }
-        }
-        catch (NoSuchMethodException | InstantiationException | IllegalAccessException | InvocationTargetException e){
+        } catch (NoSuchMethodException | InstantiationException | IllegalAccessException | InvocationTargetException e){
             Log.info("couldn't load Barrier's (was initially ER's) planet. Posting crash now");
             Threads.throwAppException(e);
         }
