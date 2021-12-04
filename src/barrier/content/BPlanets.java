@@ -10,6 +10,7 @@ import mindustry.ctype.ContentList;
 import mindustry.graphics.*;
 import mindustry.graphics.g3d.*;
 import mindustry.type.Planet;
+import mindustry.maps.planet.SerpuloPlanetGenerator;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 
@@ -52,6 +53,7 @@ public class BPlanets implements ContentList {
     @Override
     public void load() {
        sUp = createPlanet("shut", Planets.sun, 3, 1f, () -> new HexMesh(sUp, 6));
+       sUp.generator = new SerpuloPlanetGenerator();
        sUp.hasAtmosphere = true;
        sUp.atmosphereColor = Pal.spore;
        sUp.atmosphereRadIn = 0.036f;
