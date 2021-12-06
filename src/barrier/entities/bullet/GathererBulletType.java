@@ -3,10 +3,12 @@ package barrier.entities.bullet;
 import arc.*;
 import arc.graphics.*;
 import arc.graphics.g2d.*;
+import mindustry;
 import mindustry.entities.*;
 import mindustry.entities.bullet.*;
 import mindustry.entities.Effect;
 import mindustry.graphics.*;
+import mindustry.gen.*;
 import barrier.content.*;
 
 /*
