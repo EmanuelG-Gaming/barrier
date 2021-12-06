@@ -64,8 +64,8 @@ public class BUnitTypes implements ContentList{
                 shake = 0f;
                 ejectEffect = Fx.none;
                 shootSound = Sounds.mineDeploy;
-                bullet = new GathererBulletType(600f){{
-                   
+                bullet = new GathererBulletType(){{
+                   damage = 600f;
                 }};
             }});
         }};

@@ -6,6 +6,7 @@ import arc.graphics.g2d.*;
 import mindustry.entities.*;
 import mindustry.entities.bullet.*;
 import mindustry.entities.Effect;
+import mindustry.graphics.*;
 import barrier.content.*;
 
 /*
@@ -14,6 +15,8 @@ import barrier.content.*;
 / to release a huge bullet after a large amount of time
 */
 public class GathererBulletType extends PointBulletType {
+  public float sizeFrom = 20f;
+  public float sizeTo = 100f;
   public Color colorFrom = Pal.lancerLaser;
   public Color colorTo = Pal.spore;
   public Effect particleEffect = BFx.gatherParticle;
@@ -21,8 +24,8 @@ public class GathererBulletType extends PointBulletType {
   public float effectDelay = 20f;
   public int effects = 20;
   
-	public GathererBulletType(float damage) {
-	   super(damage);
+	public GathererBulletType() {
+	   super();
 	   speed = 0f;
 		 //to avoid potential bugs
 		 lifetime = effectDelay * effects + generalDelay;
@@ -35,6 +38,7 @@ public class GathererBulletType extends PointBulletType {
 	
 	@Override
   public void draw(Bullet b) {
+     float size = sizeTo * b.fin() + sizeFrom;
      Draw.color(colorFrom, colorTo, b.fout());
      Fill.circle(b.x, b.y, size);
      Draw.color(Color.white);
