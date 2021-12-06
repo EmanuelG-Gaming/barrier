@@ -63,7 +63,7 @@ public class BFx {
 
     Draw.color(e.color);
     Draw.alpha(Mathf.clamp(Time.time * 0.05f % 1f));
-    Lines.circle(x, y, (Time.time * 0.05f) % (size * 1.75f))
+    Lines.circle(x, y, (Time.time * 0.05f) % (size * 1.75f));
     Draw.alpha(1f);
     Draw.rect(Core.atlas.find("circle-shadow"), x, y, e.fslope() * 1.5f * size, e.fslope() * 1.5f * size);
   }),
