@@ -22,7 +22,7 @@ public class BPlanets implements ContentList {
     public Planet createPlanet(String name, Planet planet, int sectorSize, float radius, Prov<PlanetMesh> meshLoader){
         Planet returnPlanet = null;
         try{
-            Class[] type = { String.class, Planet.class, null, null };
+            Class[] type = {String.class, Planet.class, null, null};
             if (Version.isAtLeast("132")) {
                 type[2] = float.class;
                 type[3] = int.class;
@@ -45,6 +45,7 @@ public class BPlanets implements ContentList {
             Log.info("couldn't load Barrier's (was initially ER's) planet. Posting crash now");
             Threads.throwAppException(e);
         }
+        
         return returnPlanet;
     }
     

@@ -41,7 +41,7 @@ public class BarrierUnitEntity extends UnitEntity {
      for (int i = 0; i < releasesDuringKill; i++) {
         Time.run(9f * i, () -> {
            if (!(state.isPaused())) {
-              if (Mathf.chanceDelta(0.45f)) {
+              if (Mathf.chanceDelta(0.6f)) {
                  releaseSound.at(x, y);
                  humiliate();
               }

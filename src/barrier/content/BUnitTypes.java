@@ -16,7 +16,7 @@ import mindustry.type.weapons.*;
 import mindustry.world.meta.*;
 import barrier.type.units.BarrierUnitType;
 import barrier.content.*;
-import barrier.entities.bullet.RepulseBulletType;
+import barrier.entities.bullet.*;
 
 public class BUnitTypes implements ContentList{
     public static UnitType
@@ -24,7 +24,7 @@ public class BUnitTypes implements ContentList{
     barrierUnit;
     
     @Override
-    public void load(){
+    public void load() {
         
         barrierUnit = new BarrierUnitType("barrierUnit"){{
             hideDetails = false;
@@ -40,7 +40,8 @@ public class BUnitTypes implements ContentList{
             
             region = Core.atlas.find("barrierUnit");
             // Summit wep
-            weapons.add(new Weapon("summit"){{
+            weapons.add(
+            new Weapon("summit"){{
                 top = false;
                 y = 0f;
                 x = 0f;
@@ -50,6 +51,21 @@ public class BUnitTypes implements ContentList{
                 ejectEffect = Fx.none;
                 shootSound = Sounds.release;
                 bullet = new RepulseBulletType(3f, 600f){{
+                }};
+            }},
+            
+            // Amalgate wep
+            new Weapon("amalgate"){{
+                top = false;
+                y = 0f;
+                x = 0f;
+                reload = 1600f;
+                recoil = 0f;
+                shake = 0f;
+                ejectEffect = Fx.none;
+                shootSound = Sounds.mineDeploy;
+                bullet = new GathererBulletType(600f){{
+                   
                 }};
             }});
         }};

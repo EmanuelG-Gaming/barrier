@@ -5,18 +5,19 @@ import arc.graphics.*;
 import arc.graphics.g2d.*;
 import arc.math.*;
 import arc.math.geom.*;
+import arc.math.geom.Vec2;
 import arc.struct.*;
 import arc.util.*;
+import arc.graphics.*;
+import arc.graphics.g2d.*;
+import arc.graphics.g2d.Lines;
+import arc.graphics.g2d.Fill;
 import mindustry.entities.*;
 import mindustry.entities.Effect.*;
 import mindustry.game.*;
 import mindustry.gen.*;
 import mindustry.graphics.*;
 import mindustry.type.*;
-import arc.graphics.*;
-import arc.graphics.g2d.*;
-import arc.graphics.g2d.Lines;
-import arc.graphics.g2d.Fill;
 
 public class BFx {
   public static final Effect
@@ -50,6 +51,21 @@ public class BFx {
     Lines.square(e.x, e.y, radius / 2f);
     Draw.alpha(alpha - 0.4f);
     Fill.square(e.x, e.y, radius / 2f);
+  }),
+  
+  // Fx.itemTransfer except it's curs-
+  gatherParticle = new Effect(40f, e -> {
+    if (!(e.data instanceof Position pos)) return;
+    Tmp.v1.set(e.x, e.y).interpolate(Tmp.v2.set(pos), e.fin(), Interp.pow3)
+    .add(Tmp.v2.sub(e.x, e.y).nor().rotate90(1).scl(Mathf.randomSeedRange(e.id, 1f) * e.fslope() * 10f));
+    float x = Tmp.v1.x, y = Tmp.v1.y;
+    float size = 5f;
+
+    Draw.color(e.color);
+    Draw.alpha(Mathf.clamp(Time.time * 0.05f % 1f));
+    Lines.circle(x, y, (Time.time * 0.05f) % (size * 1.75f))
+    Draw.alpha(1f);
+    Draw.rect(Core.atlas.find("circle-shadow"), x, y, e.fslope() * 1.5f * size, e.fslope() * 1.5f * size);
   }),
   
   severedWounds = new Effect(60f, e -> {

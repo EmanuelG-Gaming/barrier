@@ -28,7 +28,7 @@ public class RepulseBulletType extends BulletType {
 	public Effect despawnEff = BFx.barrierUnitShockwave;
 	
 	private static final Vec2 v1 = new Vec2();
-
+  
 	public RepulseBulletType(float speed, float damage) {
 		super(speed, damage);
 		layer = Layer.bullet;

@@ -61,7 +61,7 @@ public class BarrierUnitType extends UnitType{
    public void drawAura(Unit unit) {
       Draw.color(shineColor, secondaryColor, Mathf.absin(Time.time, 10, 1));
       Draw.z(Layer.effect);
-      float size = hitSize + 4.5f;
+      float size = hitSize + 5f;
       Lines.circle(unit.x, unit.y, size);
       for (int i = 0; i < spikes; i++) {
          float rot = (360 / spikes * i) + Mathf.sin(Time.time * 0.05f) * 45f + unit.rotation;
