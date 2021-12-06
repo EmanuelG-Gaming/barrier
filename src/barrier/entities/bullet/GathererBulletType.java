@@ -3,7 +3,7 @@ package barrier.entities.bullet;
 import arc.*;
 import arc.graphics.*;
 import arc.graphics.g2d.*;
-import mindustry;
+import mindustry.*;
 import mindustry.entities.*;
 import mindustry.entities.bullet.*;
 import mindustry.entities.Effect;
