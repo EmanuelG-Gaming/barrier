@@ -26,7 +26,7 @@ public class BBulletTypes implements ContentList{
            despawnEff = BFx.barrierUnitShockwaveSmall;
        }};
        
-       energyConcentrationBullet = new BasicBulletType(4.5f, 1900f){{
+       energyConcentrationBullet = new BasicBulletType(4.5f, 6000f){{
            backColor = Pal.spore;
            frontColor = Color.white;
            width = 34f;

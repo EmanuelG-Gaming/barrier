@@ -68,6 +68,15 @@ public class BFx {
     Draw.rect(Core.atlas.find("circle-shadow"), x, y, e.fslope() * 1.5f * size, e.fslope() * 1.5f * size);
   }),
   
+  gatherCumulate = new Effect(450f, e -> {
+    float alpha = Interp.pow5Out.apply(e.fslope()) + 0.3f;
+    float radius = e.finpow() * e.rotation;
+    float[] args = (float[]) e.data;
+    Draw.color(args[0], args[1], e.fin());
+    Draw.alpha(alpha);
+    Lines.circle(args[2], args[3], radius / 2f);
+  }),
+  
   severedWounds = new Effect(60f, e -> {
     Draw.color(Pal.health);
     Draw.alpha(Interp.pow5Out.apply(e.fslope()));

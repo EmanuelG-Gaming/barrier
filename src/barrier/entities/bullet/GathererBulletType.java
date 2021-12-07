@@ -1,8 +1,12 @@
 package barrier.entities.bullet;
 
 import arc.*;
+import arc.audio.*;
 import arc.graphics.*;
 import arc.graphics.g2d.*;
+import arc.math.Mathf;
+import arc.util.*;
+import arc.util.Time;
 import mindustry.*;
 import mindustry.entities.*;
 import mindustry.entities.bullet.*;
@@ -19,12 +23,17 @@ import barrier.content.*;
 public class GathererBulletType extends PointBulletType {
   public float sizeFrom = 20f;
   public float sizeTo = 100f;
+  
   public Color colorFrom = Pal.lancerLaser;
   public Color colorTo = Pal.spore;
+  
   public Effect particleEffect = BFx.gatherParticle;
+  public Effect cumulativeEffect = BFx.gatherCumulate;
   public float generalDelay = 10f; 
   public float effectDelay = 20f;
   public int effects = 20;
+  
+  public Sound releaseSound = BarrierSounds.gigablast;
   
 	public GathererBulletType() {
 	   super();
@@ -38,22 +47,31 @@ public class GathererBulletType extends PointBulletType {
 		 hittable = false;
 	}
 	
-	@Override
-  public void draw(Bullet b) {
-     float size = sizeTo * b.fin() + sizeFrom;
-     Draw.color(colorFrom, colorTo, b.fout());
-     Fill.circle(b.x, b.y, size);
-     Draw.color(Color.white);
-     Fill.circle(b.x, b.y, size / 2);
-     Draw.reset();
-  }
-  
   @Override
 	public void despawned(Bullet b) {
 	   release(b);
 	} 
 	
+	@Override
+	public void hit(Bullet b) {
+	   release(b);
+	} 
+	
 	public void release(Bullet b) {
-	   //soon
+	   float progress = 0f;
+	   Color[] carr = new Color[2];
+	   float[][] args = new float[2][4];
+	   
+	   progress += Time.delta;
+	   carr = {colorFrom, colorTo};
+	   for (int i = 0; i < effects; i++) {
+	      Time.run(i * effectDelay, () -> {
+	         particleEffect.at(b.x + Mathf.range(50), b.y + Mathf.range(50), Tmp.c1.lerp(carr, progress), b);
+	      });
+	   }
+	   
+	   args = {carr, sizeTo, sizeFrom};
+	   cumulativeEffect.at(b.x, b.y, Color.white, [args[0], args[1], args[2], args[3]]);
+	   releaseSound.at(b.x, b.y);
 	}
 }
