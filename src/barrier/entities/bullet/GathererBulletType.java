@@ -39,7 +39,7 @@ public class GathererBulletType extends PointBulletType {
   public float releasePitchMin = 0.7f;
   public float releasePitchMax = 1.2f;
   
-  public Bullet releaseBullet = BBullets.energyConcentrationBullet;
+  public Bullet releaseBullet = BBulletTypes.energyConcentrationBullet;
   
 	public GathererBulletType() {
 	   super();
@@ -69,7 +69,7 @@ public class GathererBulletType extends PointBulletType {
 	      });
 	   }
 	   
-	   releaseBullet.create(b, b.x + Angles.trnsx(Mathf.range(360f), 4f), b.y + Angles.trnsy(Mathf.range(360f), 4f), b.rotation());
+	   releaseBullet.create(b, b.x + Angles.trnsx(Mathf.range(360f), 4f), b.y + Angles.trnsy(Mathf.range(360f), 4f), b.rotation(), 1f);
 	   cumulativeEffect.at(b.x, b.y, sizeTo, new Color[]{colorFrom, colorTo});
 	   Effect.shake(shake, shake, b);
 	   releaseSound.at(b.x, b.y, Mathf.random(releasePitchMin, releasePitchMax));
