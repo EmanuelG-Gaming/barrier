@@ -39,7 +39,7 @@ public class GathererBulletType extends PointBulletType {
   public float releasePitchMin = 0.7f;
   public float releasePitchMax = 1.2f;
   
-  public Bullet releaseBullet = BBulletTypes.energyConcentrationBullet;
+  public BulletType releaseBullet = BBulletTypes.energyConcentrationBullet;
   
 	public GathererBulletType() {
 	   super();
