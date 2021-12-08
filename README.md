@@ -1,6 +1,8 @@
 # Barrier
 A Java mod for Mindustry. Features a Barrier Unit (or Rejection, Humiliation, what you'll call it), two Wðls and even a status effect.
 
+Don't judge me by my commit spam, I just don't have a compiler for testing.
+
 ## Building for Desktop Testing
 
 1. Install JDK **16**.
