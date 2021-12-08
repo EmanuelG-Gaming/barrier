@@ -23,7 +23,6 @@ import barrier.content.*;
 public class GathererBulletType extends PointBulletType {
   public float sizeFrom = 20f;
   public float sizeTo = 100f;
-  public static final float particleSize = 5f;
   
   public Color colorFrom = Pal.lancerLaser;
   public Color colorTo = Pal.spore;
@@ -64,7 +63,7 @@ public class GathererBulletType extends PointBulletType {
 	   progress += Time.delta;
 	   for (int i = 0; i < effects; i++) {
 	      Time.run(i * effectDelay, () -> {
-	         particleEffect.at(b.x + Mathf.range(50), b.y + Mathf.range(50), particleSize, Tmp.c1.set(colorFrom).lerp(colorTo, progress), b);
+	         particleEffect.at(b.x + Mathf.range(50), b.y + Mathf.range(50), 0, Tmp.c1.set(colorFrom).lerp(colorTo, progress), b);
 	      });
 	   }
 	   

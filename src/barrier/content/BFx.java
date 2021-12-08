@@ -59,13 +59,12 @@ public class BFx {
     Tmp.v1.set(e.x, e.y).interpolate(Tmp.v2.set(pos), e.fin(), Interp.pow3)
     .add(Tmp.v2.sub(e.x, e.y).nor().rotate90(1).scl(Mathf.randomSeedRange(e.id, 1f) * e.fslope() * 10f));
     float x = Tmp.v1.x, y = Tmp.v1.y;
-    float size = e.rotation;
 
     Draw.color(e.color);
     Draw.alpha(Mathf.clamp(Time.time * 0.05f % 1f));
-    Lines.circle(x, y, (Time.time * 0.05f) % (size * 1.75f));
+    Lines.circle(x, y, (Time.time * 0.05f) % (5f * 1.75f));
     Draw.alpha(1f);
-    Draw.rect(Core.atlas.find("circle-shadow"), x, y, e.fslope() * 1.5f * size, e.fslope() * 1.5f * size);
+    Draw.rect(Core.atlas.find("circle-shadow"), x, y, e.fslope() * 1.5f * 5f, e.fslope() * 1.5f * 5f);
   }),
   
   gatherCumulate = new Effect(450f, e -> {
