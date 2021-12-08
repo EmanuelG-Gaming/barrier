@@ -5,6 +5,7 @@ import arc.audio.*;
 import arc.graphics.*;
 import arc.graphics.g2d.*;
 import arc.math.Mathf;
+import arc.math.Angles;
 import arc.util.*;
 import arc.util.Time;
 import mindustry.*;
@@ -32,13 +33,17 @@ public class GathererBulletType extends PointBulletType {
   public float generalDelay = 10f; 
   public float effectDelay = 20f;
   public int effects = 20;
+  public float shake = 8f;
   
   public Sound releaseSound = BarrierSounds.gigablast;
+  public float releasePitchMin = 0.7f;
+  public float releasePitchMax = 1.2f;
+  
+  public Bullet releaseBullet = BBullets.energyConcentrationBullet;
   
 	public GathererBulletType() {
 	   super();
-	   speed = 0f;
-		 //to avoid potential bugs
+	   speed = 69f;
 		 lifetime = effectDelay * effects + generalDelay;
 		 layer = Layer.bullet;
 		 
@@ -60,11 +65,13 @@ public class GathererBulletType extends PointBulletType {
 	public void release(Bullet b) {
 	   for (int i = 0; i < effects; i++) {
 	      Time.run(i * effectDelay, () -> {
-	         particleEffect.at(b.x + Mathf.range(50f), b.y + Mathf.range(50f), 0, Tmp.c1.set(colorFrom).lerp(colorTo, 1f), b);
+	         particleEffect.at(b.x + Angles.trnsx(Mathf.range(360f), sizeTo * 1.25f), b.y + Angles.trnsy(Mathf.range(360f), sizeTo * 1.25f), 0, Tmp.c1.set(colorFrom).lerp(colorTo, Mathf.absin(Time.time, 8, 1)), b);
 	      });
 	   }
 	   
+	   releaseBullet.create(b, b.x + Angles.trnsx(Mathf.range(360f), 4f), b.y + Angles.trnsy(Mathf.range(360f), 4f), b.rotation());
 	   cumulativeEffect.at(b.x, b.y, sizeTo, new Color[]{colorFrom, colorTo});
-	   releaseSound.at(b.x, b.y);
+	   Effect.shake(shake, shake, b);
+	   releaseSound.at(b.x, b.y, Mathf.random(releasePitchMin, releasePitchMax));
 	}
 }
