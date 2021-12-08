@@ -16,7 +16,7 @@ public class Barrier extends Mod {
     public Barrier() {
         Log.info("Barrier");
         
-        Events.on(FileTreeInitEvent.class, () -> BarrierSounds.load());
+        Events.on(FileTreeInitEvent.class, e -> BarrierSounds.load());
     }
     
     private final ContentList[] barrierContent = {

@@ -71,10 +71,10 @@ public class BFx {
   gatherCumulate = new Effect(450f, e -> {
     float alpha = Interp.pow5Out.apply(e.fslope()) + 0.3f;
     float radius = e.finpow() * e.rotation;
-    float[] args = (float[]) e.data;
+    Color[] args = (Color[]) e.data;
     Draw.color(args[0], args[1], e.fin());
     Draw.alpha(alpha);
-    Lines.circle(args[2], args[3], radius / 2f);
+    Lines.circle(e.x, e.y, radius / 2f);
   }),
   
   severedWounds = new Effect(60f, e -> {
