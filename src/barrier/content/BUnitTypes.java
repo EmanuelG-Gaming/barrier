@@ -65,6 +65,7 @@ public class BUnitTypes implements ContentList{
                 ejectEffect = Fx.none;
                 shootSound = Sounds.mineDeploy;
                 bullet = new GathererBulletType(){{
+                   releaseBullet = BBulletTypes.energyConcentrationBullet;
                 }};
             }});
         }};
