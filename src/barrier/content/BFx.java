@@ -59,7 +59,7 @@ public class BFx {
     Tmp.v1.set(e.x, e.y).interpolate(Tmp.v2.set(pos), e.fin(), Interp.pow3)
     .add(Tmp.v2.sub(e.x, e.y).nor().rotate90(1).scl(Mathf.randomSeedRange(e.id, 1f) * e.fslope() * 10f));
     float x = Tmp.v1.x, y = Tmp.v1.y;
-    float size = 5f;
+    float size = e.rotation;
 
     Draw.color(e.color);
     Draw.alpha(Mathf.clamp(Time.time * 0.05f % 1f));

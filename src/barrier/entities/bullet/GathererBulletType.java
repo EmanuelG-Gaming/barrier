@@ -63,7 +63,7 @@ public class GathererBulletType extends PointBulletType {
 	   progress += Time.delta;
 	   for (int i = 0; i < effects; i++) {
 	      Time.run(i * effectDelay, () -> {
-	         particleEffect.at(b.x + Mathf.range(50), b.y + Mathf.range(50), Tmp.c1.set(colorFrom).lerp(colorTo, progress), b);
+	         particleEffect.at(b.x + Mathf.range(50), b.y + Mathf.range(50), 5f, Tmp.c1.set(colorFrom).lerp(colorTo, progress), b);
 	      });
 	   }
 	   
