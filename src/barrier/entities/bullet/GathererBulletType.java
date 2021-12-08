@@ -71,8 +71,8 @@ public class GathererBulletType extends PointBulletType {
 	   
 	   float rx = b.x + Angles.trnsx(Mathf.range(360f), 4f), ry = b.y + Angles.trnsy(Mathf.range(360f), 4f);
 	   if (releaseBullet != null) {
-	      releaseBullet.create(b, x, y, b.rotation(), 1f);
-	      releaseBullet.hitEffect.at(x, y);
+	      releaseBullet.create(b, rx, ry, b.rotation(), 1f);
+	      releaseBullet.hitEffect.at(rx, ry);
 	   }
 	   cumulativeEffect.at(b.x, b.y, sizeTo, new Color[]{colorFrom, colorTo});
 	   Effect.shake(shake, shake, b);
