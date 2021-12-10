@@ -22,6 +22,8 @@ public class BBulletTypes implements ContentList{
            rang = 60f;
            repulseRange = 25f;
            statusTime = 150f;
+           splashDamage = 200f;
+           splashDamageRadius = 80f;
            
            despawnEff = BFx.barrierUnitShockwaveSmall;
        }};

@@ -29,8 +29,8 @@ public class BUnitTypes implements ContentList{
         barrierUnit = new BarrierUnitType("barrierUnit"){{
             hideDetails = false;
             flying = true;
-            health = 45000f;
-            speed = 3.4f;
+            health = 40000f;
+            speed = 3.5f;
             accel = 0.08f;
             drag = 0.01f;
             range = 160f;
@@ -45,12 +45,14 @@ public class BUnitTypes implements ContentList{
                 top = false;
                 y = 0f;
                 x = 0f;
-                reload = 100f;
+                reload = 260f;
                 recoil = 4f;
                 shake = 2f;
                 ejectEffect = Fx.none;
                 shootSound = Sounds.release;
                 bullet = new RepulseBulletType(3f, 600f){{
+                   splashDamage = 750f;
+                   splashDamageRadius = 110f;
                 }};
             }},
             

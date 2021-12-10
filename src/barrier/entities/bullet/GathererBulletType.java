@@ -9,6 +9,7 @@ import arc.math.Angles;
 import arc.util.*;
 import arc.util.Time;
 import mindustry.*;
+import mindustry.content.Fx;
 import mindustry.entities.*;
 import mindustry.entities.bullet.*;
 import mindustry.entities.Effect;
@@ -43,9 +44,10 @@ public class GathererBulletType extends PointBulletType {
   
 	public GathererBulletType() {
 	   super();
-	   speed = 69f;
-		 lifetime = effectDelay * effects + generalDelay;
+	   speed = 8f;
+		 lifetime = generalDelay;
 		 layer = Layer.bullet;
+		 trailEffect = Fx.none;
 		 
 		 collides = false;
 		 absorbable = false;

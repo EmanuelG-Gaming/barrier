@@ -52,7 +52,6 @@ public class RepulseBulletType extends BulletType {
   public void repulse(Bullet b) {
     Units.nearbyEnemies(b.team, b.x, b.y, rang, enemy -> {
       if (enemy != null && enemy.within(b.x, b.y, rang) && enemy.isValid()) {
-        if (enemy instanceof Healthc) enemy.damage(repulseDamage);
         enemy.apply(knockbackStatus, statusTime);
         v1.set(b).sub(enemy).nor().scl(repulseRange * 80f);
         v1.setAngle(b.angleTo(enemy));
