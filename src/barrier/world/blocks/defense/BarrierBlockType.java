@@ -22,7 +22,7 @@ import static mindustry.Vars.*;
 
 public class BarrierBlockType extends Wall {
   public Effect whooshEffect = BFx.barrierRepulse;
-  public float damage = 15f;
+  public float damage = 7.5f;
   public float repulseForce = 8f;
  
 	private static final Vec2 v1 = new Vec2();
@@ -43,8 +43,8 @@ public class BarrierBlockType extends Wall {
   public void setStats() {
      super.setStats();
      stats.remove(Stat.health);
-     stats.add(Stat.health, l -> l.add("aleph null").color(Pal.health)); ///////////////////////////////////////
-     stats.add(Stat.abilities, l -> l.add("Force: " + repulseForce));
+     stats.add(Stat.health, l -> l.add("Aleph Null").color(Pal.health));
+     stats.add(Stat.abilities, l -> l.add(Core.bundle.format("barrier.barrierForce", repulseForce)));
   }
   
   public class BarrierBuild extends WallBuild {
