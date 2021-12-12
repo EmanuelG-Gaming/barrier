@@ -10,9 +10,9 @@ import mindustry.content.Items;
 import mindustry.world.*;
 import mindustry.world.Block;
 import mindustry.world.blocks.*;
+import mindustry.world.blocks.defense.turrets.ItemTurret;
 import mindustry.world.meta.*;
 import barrier.content.*;
-import barrier.content.BFx;
 import barrier.world.blocks.defense.BarrierBlockType;
 
 import static mindustry.type.ItemStack.with;
@@ -53,8 +53,8 @@ public class BBlockTypes implements ContentList {
        
        rotateSpeed = 10f;
        
-       ammo(Items.surgeAlloy, BBullets.repulsiveBulletSmall);
-       requirements(Category.turrets, BuildVisibility.sandboxOnly, with(Items.titanium, 1100, Items.graphite, 1200, Items.silicon, 2500, Items.plastanium, 850, Items.surgeAlloy, 600));
+       ammo(Items.surgeAlloy, BBulletTypes.repulsiveBulletSmall);
+       requirements(Category.turret, BuildVisibility.sandboxOnly, with(Items.titanium, 1100, Items.graphite, 1200, Items.silicon, 2500, Items.plastanium, 850, Items.surgeAlloy, 600));
     }};
   }
 }
