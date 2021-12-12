@@ -20,7 +20,11 @@ import static mindustry.type.ItemStack.with;
 public class BBlockTypes implements ContentList {
   public static Block
   
-  barrier, barrierLarge;
+  // Defense
+  barrier, barrierLarge, 
+  
+  // Turrets
+  failure;
 
   @Override
   public void load() {
@@ -34,6 +38,23 @@ public class BBlockTypes implements ContentList {
        size = 2;
        hideDetails = false;
        requirements(Category.defense, BuildVisibility.editorOnly, with(Items.copper, 24, Items.graphite, 24, Items.thorium, 24, Items.surgeAlloy, 12));
+    }};
+    
+    failure = new ItemTurret("failure"){{
+       size = 3;
+       health = 750 * size * size;
+       
+       shots = 3;
+       range = 180f;
+       reloadTime = 60f;
+       inaccuracy = 8f;
+       recoilAmount = 7f;
+       shootSound = Sounds.release;
+       
+       rotateSpeed = 10f;
+       
+       ammo(Items.surgeAlloy, BBullets.repulsiveBulletSmall);
+       requirements(Category.turrets, BuildVisibility.sandboxOnly, with(Items.titanium, 1100, Items.graphite, 1200, Items.silicon, 2500, Items.plastanium, 850, Items.surgeAlloy, 600));
     }};
   }
 }

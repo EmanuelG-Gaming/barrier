@@ -1,8 +1,6 @@
 package barrier.world.blocks.defense;
 
 import arc.*;
-import arc.util.*;
-import arc.util.Log.*;
 import arc.math.*;
 import arc.math.geom.*;
 import arc.math.geom.Vec2;
@@ -67,7 +65,7 @@ public class BarrierBlockType extends Wall {
           if (other instanceof Healthc) other.damage(damage);
           whooshEffect.at(x, y, size * tilesize);
           
-          Log.info("Repulse");
+          //Log.info("Repulse");
         }
       });
     }

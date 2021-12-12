@@ -71,10 +71,10 @@ public class GathererBulletType extends PointBulletType {
 	      });
 	   }
 	   
-	   float rx = b.x + Angles.trnsx(Mathf.range(360f), 4f), ry = b.y + Angles.trnsy(Mathf.range(360f), 4f);
+	   float rx = Angles.trnsx(Mathf.range(360f), 4f), ry = Angles.trnsy(Mathf.range(360f), 4f);
 	   if (releaseBullet != null) {
-	      releaseBullet.create(b, rx, ry, b.rotation(), 1f);
-	      releaseBullet.hitEffect.at(rx, ry);
+	      releaseBullet.create(b, b.x + rx, b.y + ry, b.rotation(), 1f);
+	      releaseBullet.hitEffect.at(b.x + rx, b.y + ry);
 	   }
 	   cumulativeEffect.at(b.x, b.y, sizeTo, new Color[]{colorFrom, colorTo});
 	   Effect.shake(shake, shake, b);

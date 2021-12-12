@@ -2,7 +2,7 @@ displayName: "Barrier"
 name: "barrier"
 author: "Emanuel G or Antumbra"
 main: "barrier.Barrier"
-description: "A small mod. Adds a Barrier-related unit and other things. Thanks to Sh1p for the Severed status sprite."
+description: "A small mod, aimed to expand the endgame progression of Mindustry. Adds a Barrier-related unit and some other things... Thanks to Sh1p for the Severed status sprite."
 version: "1.0, the Final Update...?"
 minGameVersion: 129
 hidden: false
