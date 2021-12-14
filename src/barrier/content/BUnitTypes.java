@@ -21,7 +21,7 @@ import barrier.entities.bullet.*;
 public class BUnitTypes implements ContentList{
     public static UnitType
     
-    barrierUnit;
+    barrierUnit, flyer;
     
     @Override
     public void load() {
@@ -70,6 +70,22 @@ public class BUnitTypes implements ContentList{
                    releaseBullet = BBulletTypes.energyConcentrationBullet;
                 }};
             }});
+        }};
+        
+        flyer = new BarrierUnitType("speedyBastard"){{
+            hideDetails = false;
+            hitSize = 4.75f;
+            flying = true;
+            health = 1500f;
+            speed = 4.5f;
+            accel = 0.07f;
+            drag = 0.006f;
+            range = 160f;
+            engineOffset = 6.25f;
+            defaultController = FlyingAI::new;
+            ammoType = new PowerAmmoType(600);
+            
+            region = Core.atlas.find("speedyBastard");
         }};
     };
 }
