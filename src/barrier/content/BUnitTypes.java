@@ -17,6 +17,7 @@ import mindustry.world.meta.*;
 import barrier.type.units.BarrierUnitType;
 import barrier.content.*;
 import barrier.entities.bullet.*;
+import barrier.entities.units.*;
 
 public class BUnitTypes implements ContentList{
     public static UnitType
@@ -36,9 +37,12 @@ public class BUnitTypes implements ContentList{
             range = 160f;
             engineOffset = 7f;
             defaultController = FlyingAI::new;
+            constructor = BarrierUnitEntity::new;
             ammoType = new PowerAmmoType(1550);
+            spikes = 5;
             
             region = Core.atlas.find("barrierUnit");
+            
             // Summit wep
             weapons.add(
             new Weapon("summit"){{
@@ -83,7 +87,9 @@ public class BUnitTypes implements ContentList{
             range = 160f;
             engineOffset = 6.25f;
             defaultController = FlyingAI::new;
+            constructor = SpeedyUnitEntity::new;
             ammoType = new PowerAmmoType(600);
+            spikes = 3;
             
             region = Core.atlas.find("speedyBastard");
         }};

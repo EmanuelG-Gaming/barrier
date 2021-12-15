@@ -9,7 +9,7 @@ import mindustry.*;
 import mindustry.content.*;
 import mindustry.gen.*;
 import mindustry.mod.*;
-import mindustry.game.EventType.FileTreeInitEvent;
+import mindustry.game.EventType.*;
 import barrier.content.*;
 
 public class Barrier extends Mod {
@@ -17,6 +17,10 @@ public class Barrier extends Mod {
         Log.info("Barrier");
         
         Events.on(FileTreeInitEvent.class, e -> BarrierSounds.load());
+        
+        Events.on(UnitCreateEvent.class, e -> {
+           // soon
+        });
     }
     
     private final ContentList[] barrierContent = {
@@ -29,7 +33,7 @@ public class Barrier extends Mod {
     };
     
     @Override
-    public void loadContent(){
+    public void loadContent() {
         for (ContentList list : barrierContent) list.load();
     }
 }

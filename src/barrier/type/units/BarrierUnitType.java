@@ -18,7 +18,6 @@ import mindustry.type.UnitType;
 import mindustry.entities.*;
 import mindustry.entities.bullet.*;
 import mindustry.graphics.*;
-import barrier.entities.units.BarrierUnitEntity;
 
 public class BarrierUnitType extends UnitType{
   public Color shineColor = Pal.lancerLaser;
@@ -29,7 +28,6 @@ public class BarrierUnitType extends UnitType{
   
    public BarrierUnitType(String name) {
 	  	super(name);
-	  	constructor = BarrierUnitEntity::new;
 	  	onTitleScreen = false;
 	  	deathSound = Sounds.corexplode;
    }
@@ -37,7 +35,9 @@ public class BarrierUnitType extends UnitType{
    @Override
    public void draw(Unit unit) {
       super.draw(unit);
+      Draw.z(Layer.effect);
       drawAura(unit);
+      Draw.z();
    }
    
    @Override
@@ -60,13 +60,11 @@ public class BarrierUnitType extends UnitType{
    
    public void drawAura(Unit unit) {
       Draw.color(shineColor, secondaryColor, Mathf.absin(Time.time, 10, 1));
-      Draw.z(Layer.effect);
       float size = hitSize + 5f;
       Lines.circle(unit.x, unit.y, size);
       for (int i = 0; i < spikes; i++) {
          float rot = (360 / spikes * i) + Mathf.sin(Time.time * 0.05f) * 45f + unit.rotation;
          Drawf.tri(unit.x + Angles.trnsx(rot, size), unit.y + Angles.trnsy(rot, size), 4, -4, rot);
       }
-      Draw.z();
    }
 }

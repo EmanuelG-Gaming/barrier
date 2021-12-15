@@ -18,6 +18,7 @@ import mindustry.game.*;
 import mindustry.gen.*;
 import mindustry.graphics.*;
 import mindustry.type.*;
+import mindustry.type.Item;
 
 public class BFx {
   public static final Effect
@@ -75,6 +76,22 @@ public class BFx {
     Draw.alpha(alpha);
     Lines.circle(e.x, e.y, radius / 2f);
   }),
+  
+  getItem = new Effect(30f, e -> {
+    if (!(e.data instanceof Item item)) return;
+    Draw.color(item.color);
+    Draw.alpha(Interp.pow5Out.apply(e.fslope()));
+    Lines.circle(e.x, e.y, 20f * e.finpow());
+  }),
+  
+  getItemBh = new Effect(10f * 8f, e -> {
+    if (!(e.data instanceof Item item)) return;
+    Draw.color(item.color.cpy().mul(1.5f));
+    float growth = (10f + Mathf.sin(Time.time * 0.05f) * 5f) * Interp.pow5Out.apply(e.fslope());
+    Fill.circle(e.x, e.y, growth);
+    Draw.color(Color.black);
+    Fill.circle(e.x, e.y, growth / 1.5f);
+  }).layer(Layer.effect + 0.01f);
   
   severedWounds = new Effect(60f, e -> {
     Draw.color(Pal.health);
