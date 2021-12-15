@@ -91,7 +91,7 @@ public class BFx {
     Fill.circle(e.x, e.y, growth);
     Draw.color(Color.black);
     Fill.circle(e.x, e.y, growth / 1.5f);
-  }).layer(Layer.effect + 0.01f);
+  }).layer(Layer.effect + 0.01f),
   
   severedWounds = new Effect(60f, e -> {
     Draw.color(Pal.health);
