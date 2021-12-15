@@ -69,7 +69,7 @@ public class BarrierUnitEntity extends UnitEntity {
             float rx = x + Mathf.range(unitSpread), ry = y + Mathf.range(unitSpread);
             Fx.spawn.at(rx, ry);
             Sounds.respawn.at(rx, ry);
-            Unit u = destroyUnit.create(this.unit.team);
+            Unit u = destroyUnit.create(team);
             u.set(rx, ry);
             Tmp.v1.set(u.x, u.y);
             u.rotation = u.angleTo(Tmp.v1) + 180f;

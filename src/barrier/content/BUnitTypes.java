@@ -17,7 +17,8 @@ import mindustry.world.meta.*;
 import barrier.type.units.BarrierUnitType;
 import barrier.content.*;
 import barrier.entities.bullet.*;
-import barrier.entities.units.*;
+import barrier.entities.units.BarrierUnitEntity;
+import barrier.entities.units.SpeedyUnitEntity;
 
 public class BUnitTypes implements ContentList{
     public static UnitType

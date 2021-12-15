@@ -5,6 +5,8 @@ import arc.math.*;
 import arc.math.Mathf;
 import arc.util.*;
 import arc.util.Time;
+import mindustry.*;
+import mindustry.type.*;
 import mindustry.type.Item;
 import mindustry.type.UnitType;
 import mindustry.content.*;
@@ -23,13 +25,13 @@ public class SpeedyUnitEntity extends UnitEntity {
      float sx = x + Mathf.sin(Time.time * 0.05f) * 50f, sy = y + Mathf.cos(Time.time * 0.05f) * 50f;
      for (int i = 0; i < type.itemCapacity; i++) {
         Time.run(8f * i, () -> {
-           Fx.itemTransfer.at(sx, sy, 4, item.color, unit);
+           Fx.itemTransfer.at(sx, sy, 4, item.color, this);
            hfx.at(sx, sy, 0, item);
            stack.amount += 1;
         });
      }
      
-     hfxBh.at(sx, sy, item);
+     hfxBh.at(sx, sy, 0, item);
      stack.item = item;
      this.apply(StatusEffects.unmoving, 8f * type.itemCapacity + 10f);
   }
