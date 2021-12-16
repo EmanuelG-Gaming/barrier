@@ -8,7 +8,7 @@ import arc.util.Time;
 import mindustry.*;
 import mindustry.gen.*;
 import mindustry.gen.UnitEntity;
-import mindustry.game.*;
+import mindustry.game.Team;
 import mindustry.type.*;
 import mindustry.type.Item;
 import mindustry.type.UnitType;
@@ -24,6 +24,7 @@ public class SpeedyUnitEntity extends UnitEntity {
   
   @Override
   public void create(Team team) {
+     super.create(team);
      float sx = x + Mathf.sin(Time.time * 0.05f) * 50f, sy = y + Mathf.cos(Time.time * 0.05f) * 50f;
      for (int i = 0; i < type.itemCapacity; i++) {
         Time.run(8f * i, () -> {
@@ -36,7 +37,6 @@ public class SpeedyUnitEntity extends UnitEntity {
      hfxBh.at(sx, sy, 0, item);
      stack.item = item;
      this.apply(StatusEffects.unmoving, 8f * type.itemCapacity + 10f);
-     super.create(team);
   }
   
   @Override
