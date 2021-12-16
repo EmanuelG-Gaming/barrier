@@ -22,6 +22,8 @@ public class SpeedyUnitEntity extends UnitEntity {
   public Effect hfx = BFx.getItem;
   public Effect hfxBh = BFx.getItemBh;
   
+  // ~~until i find an answer to this~~
+  /*
   @Override
   public void create(Team team) {
      Unit unit = super.create(team);
@@ -40,6 +42,7 @@ public class SpeedyUnitEntity extends UnitEntity {
      
      return unit;
   }
+  */
   
   @Override
   public String toString() {
