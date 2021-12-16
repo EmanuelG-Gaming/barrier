@@ -24,19 +24,21 @@ public class SpeedyUnitEntity extends UnitEntity {
   
   @Override
   public void create(Team team) {
-     super.create(team);
-     float sx = x + Mathf.sin(Time.time * 0.05f) * 50f, sy = y + Mathf.cos(Time.time * 0.05f) * 50f;
+     Unit unit = super.create(team);
+     float sx = unit.x + Mathf.sin(Time.time * 0.05f) * 50f, sy = unit.y + Mathf.cos(Time.time * 0.05f) * 50f;
      for (int i = 0; i < type.itemCapacity; i++) {
         Time.run(8f * i, () -> {
-           Fx.itemTransfer.at(sx, sy, 4, item.color, this);
+           Fx.itemTransfer.at(sx, sy, 4, item.color, unit);
            hfx.at(sx, sy, 0, item);
-           stack.amount += 1;
+           unit.stack.amount += 1;
         });
      }
      
      hfxBh.at(sx, sy, 0, item);
-     stack.item = item;
-     this.apply(StatusEffects.unmoving, 8f * type.itemCapacity + 10f);
+     unit.stack.item = item;
+     unit.apply(StatusEffects.unmoving, 8f * unit.type.itemCapacity + 10f);
+     
+     return unit;
   }
   
   @Override
