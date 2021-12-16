@@ -19,6 +19,7 @@ import mindustry.type.Weather;
 import mindustry.entities.*;
 import mindustry.entities.Effect;
 import mindustry.entities.bullet.*;
+import mindustry.entities.units.*;
 import barrier.content.*;
 import barrier.content.BBulletTypes;
 import barrier.content.BUnitTypes;
