@@ -64,7 +64,7 @@ public class BarrierUnitEntity extends UnitEntity {
       }
       
       float windx = Mathf.range(1f) * world.width(), windy = Mathf.range(1f) * world.height();
-      Call.createWeather(weather, 1 + Mathf.range(1.5f), weatherTime + Mathf.range(1600f), windx, windy);
+      Call.createWeather(weather, 0.5f + Mathf.range(1.5f), weatherTime + Mathf.range(1600f), windx, windy);
       ui.hudfrag.showToast(Icon.warning, toastUnit.emoji() + " " + Core.bundle.format("barrier.isDead", toastUnit.localizedName));
       
       Time.run(60f, () -> {
@@ -75,7 +75,8 @@ public class BarrierUnitEntity extends UnitEntity {
             Unit u = destroyUnit.create(team);
             u.set(rx, ry);
             Tmp.v1.set(u.x, u.y);
-            u.rotation = u.angleTo(Tmp.v1) + 180f;
+            float rot = u.angleTo(Tmp.v1);
+            u.rotation = rot;
             Events.fire(new UnitCreateEvent(u, null, this));
             if (!net.client()) {
               u.add();
