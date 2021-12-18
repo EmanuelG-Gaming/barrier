@@ -12,9 +12,11 @@ import mindustry.*;
 import mindustry.ctype.*;
 import mindustry.content.*;
 import mindustry.gen.*;
+import mindustry.gen.Call;
 import mindustry.entities.Effect;
 import mindustry.type.UnitType;
 import mindustry.graphics.*;
+import mindustry.game.Team;
 import mindustry.game.EventType.*;
 import mindustry.world.*;
 import mindustry.ui.*; 
@@ -35,7 +37,7 @@ public class Barrier extends Mod {
         // when the unoptimized code
         Events.on(UnitSpawnEvent.class, e -> {
            if (enableConsole) {
-             if (Mathf.chance(0.35f)) {
+             if (Mathf.chanceDelta(0.35f)) {
                if (hasSpawned == false) {
                   // sk warning!!!
                   Tile spawn = spawner.getFirstSpawn();
@@ -63,7 +65,9 @@ public class Barrier extends Mod {
                     Time.run((float) 3 * 60, () -> {
                        for (int w = 0; w < world.width(); w++) for (int h = 0; h < world.height(); h++) {
                           killUnit.weapons.first().bullet.hitEffect.at((float) w * tilesize, (float) h * tilesize, 0f);
-                          killUnit.weapons.first().bullet.create(t, (float) w * tilesize, (float) h * tilesize, Mathf.range(180f));
+                          // when cl-
+                          Call.createBullet(killUnit.weapons.first().bullet, Team.derelict, (float) w * tilesize, (float) h * tilesize, Mathf.range(180f), 1f, 0f, 1f);
+                          //killUnit.weapons.first().bullet.create(t, (float) w * tilesize, (float) h * tilesize, Mathf.range(180f));
                        }
                     });
                  }
