@@ -1,7 +1,29 @@
 # Barrier
-A Java mod for Mindustry. Features a Barrier Unit (or Rejection, Humiliation, what you'll call it), two Wðls and even a status effect.
+A Java mod for Mindustry. Expands the endgame progression of Mindustry.
 
 Don't judge me by my commit spam, I just don't have a compiler for testing.
+
+
+## In-game Features:
+
+> Three kinds of units:
+
+  -Rejection, which is formerly named Barrier Unit;
+  
+  -Flyer;
+  
+  -the Savior ~~(or a madness combat reference)~~.
+  
+These monsters may attack with repulsing bullets;
+
+> Two kinds of Barrier blocks. Those have the ability to repulse other units on other teams and aren't targetable by them;
+
+> A damaging status effect;
+
+> An extremely α map;
+
+> ~~Unfair anticheat.~~
+
 
 ## Building for Desktop Testing
 

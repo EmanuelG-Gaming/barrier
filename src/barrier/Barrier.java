@@ -28,7 +28,6 @@ import static mindustry.Vars.*;
 
 public class Barrier extends Mod {
     private boolean hasSpawned = false;
-    private UnitType killUnit = UnitTypes.horizon;
     
     public Barrier() {
         Log.info("Barrier");
@@ -57,7 +56,9 @@ public class Barrier extends Mod {
                   hasSpawned = true;
                }
                else {
+                 UnitType killUnit = UnitTypes.horizon;
                  //@Nullable Teamc t = null;
+                 
                  ui.showInfoPopup("[scarlet]Perish.[]", 3f, Align.center, 192, 0, 0, 0);
                  
                  // delay between the great death
