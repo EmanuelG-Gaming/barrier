@@ -23,7 +23,7 @@ import barrier.entities.units.SpeedyUnitEntity;
 public class BUnitTypes implements ContentList{
     public static UnitType
     
-    barrierUnit, flyer;
+    barrierUnit, flyer, savior;
     
     @Override
     public void load() {
@@ -93,6 +93,25 @@ public class BUnitTypes implements ContentList{
             spikes = 3;
             
             region = Core.atlas.find("speedyBastard");
+        }};
+        
+        savior = new BarrierUnitType("anticheatUnit"){{
+            hideDetails = false;
+            hitSize = 3.45f;
+            flying = true;
+            health = Integer.MAX_VALUE;
+            speed = 2.5f;
+            accel = 0.07f;
+            drag = 0.006f;
+            range = 190f;
+            engineOffset = 3.25f;
+            engineSize = 0.5f;
+            defaultController = FlyingAI::new;
+            constructor = SpeedyUnitEntity::new;
+            ammoType = new PowerAmmoType(5000);
+            spikes = 0;
+            
+            region = Core.atlas.find("anticheatUnit");
         }};
     };
 }

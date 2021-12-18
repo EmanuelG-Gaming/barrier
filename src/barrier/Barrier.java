@@ -1,25 +1,74 @@
 package barrier;
 
 import arc.*;
+import arc.graphics.*;
+import arc.math.Mathf;
 import arc.Events;
 import arc.util.*;
 import arc.util.Log.*;
-import mindustry.ctype.*;
+import arc.struct.Seq;
 import mindustry.*;
+import mindustry.ctype.*;
 import mindustry.content.*;
 import mindustry.gen.*;
+import mindustry.entities.Effect;
+import mindustry.type.UnitType;
 import mindustry.mod.*;
 import mindustry.game.EventType.*;
+import mindustry.ui.*;
+import barrier.entities.bullet.GathererBulletType;
 import barrier.content.*;
 
+import static mindustry.Vars;
+
 public class Barrier extends Mod {
+    private boolean hasSpawned = false;
+    
     public Barrier() {
         Log.info("Barrier");
         
         Events.on(FileTreeInitEvent.class, e -> BarrierSounds.load());
         
-        Events.on(UnitCreateEvent.class, e -> {
-           // soon
+        // when the unoptimized code
+        Events.on(UnitSpawnEvent.class, e -> {
+           if (enableConsole) {
+             if (Mathf.chance(0.35f)) {
+               if (hasSpawned == false) {
+                 BFx.gatherCumulate.at(
+                    e.spawner.x, 
+                    e.spawner.y,
+                    state.rules.dropZoneRadius + 50f,
+                    new Color[]{(GathererBulletType) colorFrom, (GathererBulletType) colorTo}
+                 );
+               
+                 BUnitTypes.flyer.spawn(state.rules.defaultTeam, e.spawner.x, e.spawner.y);
+                 ui.showInfoPopup(Core.bundle.format(barrier.unitApproachingCheat, BUnitTypes.flyer.localizedName), 5f, Align.center, 192f, 0f, 0f, 0f);
+               
+                 Log.info("perish.");
+                 hasSpawned = true;
+               }
+               else {
+                 @Nullable Teamc team; 
+                 UnitType killUnit = UnitTypes.horizon;
+               
+                 ui.showInfoPopup("[scarlet]Perish.[]", 3f, Align.center, 192f, 0f, 0f, 0f);
+                 // delay between the great death
+                 if (KillUnit.hasWeapons()) {
+                    Time.run((float) 3 * Time.toSeconds(), () -> {
+                       for (int w = 0; w < world.width; w++) for (int h = 0; h < world.height; h++) {
+                          killUnit.weapons.first().bullet.hitEffect.at(w * tilesize, h * tilesize, 0f);
+                          killUnit.weapons.first().bullet.create(team, w * tilesize, h * tilesize, 0f, Mathf.range(180f));
+                       }
+                    });
+                 }
+                 else {
+                    // lazy string formatting
+                    Log.warn("Unit has no weapons! " + killUnit + "(" + killUnit.localizedName + ")");
+                 }
+                 Log.info("perish.");
+               }
+             }
+           }
         });
     }
     

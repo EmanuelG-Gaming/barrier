@@ -68,7 +68,7 @@ public class BFx {
     Draw.rect(Core.atlas.find("circle-shadow"), x, y, e.fslope() * 1.5f * 5f, e.fslope() * 1.5f * 5f);
   }),
   
-  gatherCumulate = new Effect(450f, e -> {
+  gatherCumulate = new Effect(160f, e -> {
     float alpha = Interp.pow5Out.apply(e.fslope()) + 0.3f;
     float radius = e.finpow() * e.rotation;
     Color[] args = (Color[]) e.data;
