@@ -28,6 +28,7 @@ import static mindustry.Vars.*;
 
 public class Barrier extends Mod {
     private boolean hasSpawned = false;
+    private UnitType killUnit = UnitTypes.horizon;
     
     public Barrier() {
         Log.info("Barrier");
@@ -37,7 +38,7 @@ public class Barrier extends Mod {
         // when the unoptimized code
         Events.on(UnitSpawnEvent.class, e -> {
            if (enableConsole) {
-             if (Mathf.chanceDelta(0.35f)) {
+             if (Mathf.chance(0.25f)) {
                if (hasSpawned == false) {
                   // sk warning!!!
                   Tile spawn = spawner.getFirstSpawn();
@@ -56,18 +57,18 @@ public class Barrier extends Mod {
                   hasSpawned = true;
                }
                else {
-                 UnitType killUnit = UnitTypes.horizon;
-                 @Nullable Teamc t = null;
+                 //@Nullable Teamc t = null;
                  ui.showInfoPopup("[scarlet]Perish.[]", 3f, Align.center, 192, 0, 0, 0);
                  
                  // delay between the great death
                  if (killUnit.hasWeapons()) {
-                    Time.run((float) 3 * 60, () -> {
-                       for (int w = 0; w < world.width(); w++) for (int h = 0; h < world.height(); h++) {
-                          killUnit.weapons.first().bullet.hitEffect.at((float) w * tilesize, (float) h * tilesize, 0f);
+                    Time.run((float) 3 * 60 + 10, () -> {
+                       for (int w = 0; w < world.width() / 4; w++) for (int h = 0; h < world.height() / 4; h++) {
+                          float wx = w * tilesize * 4, wy = h * tilesize * 4;
+                          killUnit.weapons.first().bullet.hitEffect.at(wx, wy, 0f);
                           // when cl-
-                          Call.createBullet(killUnit.weapons.first().bullet, Team.derelict, (float) w * tilesize, (float) h * tilesize, Mathf.range(180f), 1f, 0f, 1f);
-                          //killUnit.weapons.first().bullet.create(t, (float) w * tilesize, (float) h * tilesize, Mathf.range(180f));
+                          Call.createBullet(killUnit.weapons.first().bullet, Team.derelict, wx, wy, Mathf.range(180f), 1f, 0f, 1f);
+                          //killUnit.weapons.first().bullet.create(t, wx, wy, Mathf.range(180f));
                        }
                     });
                  }
