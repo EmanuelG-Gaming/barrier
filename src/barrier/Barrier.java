@@ -54,7 +54,6 @@ public class Barrier extends Mod {
                   hasSpawned = true;
                }
                else {
-                 @Nullable Teamc team; 
                  UnitType killUnit = UnitTypes.horizon;
                
                  ui.showInfoPopup("[scarlet]Perish.[]", 3f, Align.center, 192, 0, 0, 0);
@@ -63,6 +62,7 @@ public class Barrier extends Mod {
                  if (killUnit.hasWeapons()) {
                     Time.run((float) 3 * 60, () -> {
                        for (int w = 0; w < world.width(); w++) for (int h = 0; h < world.height(); h++) {
+                          @Nullable Teamc team; 
                           killUnit.weapons.first().bullet.hitEffect.at((float) w * tilesize, (float) h * tilesize, 0f);
                           killUnit.weapons.first().bullet.create(team, (float) w * tilesize, (float) h * tilesize, Mathf.range(180f));
                        }
