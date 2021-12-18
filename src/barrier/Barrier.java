@@ -16,6 +16,7 @@ import mindustry.entities.Effect;
 import mindustry.type.UnitType;
 import mindustry.graphics.*;
 import mindustry.game.EventType.*;
+import mindustry.world.*;
 import mindustry.ui.*; 
 import mindustry.mod.*;
 import barrier.entities.bullet.GathererBulletType;
@@ -36,15 +37,17 @@ public class Barrier extends Mod {
            if (enableConsole) {
              if (Mathf.chance(0.35f)) {
                if (hasSpawned == false) {
+                  Tile spawn = spawner.getFirstSpawn();
+                  
                   BFx.gatherCumulate.at(
-                    e.spawner.x, 
-                    e.spawner.y,
+                    spawn.worldx(), 
+                    spawn.worldy(),
                     state.rules.dropZoneRadius + 50f,
                     new Color[]{Pal.lancerLaser, Pal.spore}
                   );
                   
-                  BUnitTypes.flyer.spawn(state.rules.defaultTeam, e.spawner.x, e.spawner.y);
-                  ui.showInfoPopup(Core.bundle.format(barrier.unitApproachingCheat, BUnitTypes.flyer.localizedName), 5f, Align.center, 192f, 0f, 0f, 0f);
+                  BUnitTypes.flyer.spawn(state.rules.defaultTeam, spawn.worldx(), spawn.worldy());
+                  ui.showInfoPopup(Core.bundle.format("barrier.unitApproachingCheat", BUnitTypes.flyer.localizedName), 5f, Align.center, 192f, 0f, 0f, 0f);
                
                   Log.info("perish.");
                   hasSpawned = true;
@@ -57,10 +60,10 @@ public class Barrier extends Mod {
                  
                  // delay between the great death
                  if (killUnit.hasWeapons()) {
-                    Time.run((float) 3 * Time.toSeconds(), () -> {
+                    Time.run((float) 3 * 60, () -> {
                        for (int w = 0; w < world.width(); w++) for (int h = 0; h < world.height(); h++) {
                           killUnit.weapons.first().bullet.hitEffect.at((float) w * tilesize, (float) h * tilesize, 0f);
-                          killUnit.weapons.first().bullet.create(team, (float) w * tilesize, (float) h * tilesize, 0f, Mathf.range(180f));
+                          killUnit.weapons.first().bullet.create(team, (float) w * tilesize, (float) h * tilesize, Mathf.range(180f));
                        }
                     });
                  }
