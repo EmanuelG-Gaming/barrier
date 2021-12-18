@@ -37,6 +37,7 @@ public class Barrier extends Mod {
            if (enableConsole) {
              if (Mathf.chance(0.35f)) {
                if (hasSpawned == false) {
+                  // sk warning!!!
                   Tile spawn = spawner.getFirstSpawn();
                   
                   BFx.gatherCumulate.at(
@@ -47,7 +48,7 @@ public class Barrier extends Mod {
                   );
                   
                   BUnitTypes.flyer.spawn(state.rules.defaultTeam, spawn.worldx(), spawn.worldy());
-                  ui.showInfoPopup(Core.bundle.format("barrier.unitApproachingCheat", BUnitTypes.flyer.localizedName), 5f, Align.center, 192f, 0f, 0f, 0f);
+                  ui.showInfoPopup(Core.bundle.format("barrier.unitApproachingCheat", BUnitTypes.flyer.localizedName), 5f, Align.center, 192, 0, 0, 0);
                
                   Log.info("perish.");
                   hasSpawned = true;
