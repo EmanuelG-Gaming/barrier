@@ -55,16 +55,15 @@ public class Barrier extends Mod {
                }
                else {
                  UnitType killUnit = UnitTypes.horizon;
-               
+                 @Nullable Teamc t = null;
                  ui.showInfoPopup("[scarlet]Perish.[]", 3f, Align.center, 192, 0, 0, 0);
                  
                  // delay between the great death
                  if (killUnit.hasWeapons()) {
                     Time.run((float) 3 * 60, () -> {
                        for (int w = 0; w < world.width(); w++) for (int h = 0; h < world.height(); h++) {
-                          @Nullable Teamc team; 
                           killUnit.weapons.first().bullet.hitEffect.at((float) w * tilesize, (float) h * tilesize, 0f);
-                          killUnit.weapons.first().bullet.create(team, (float) w * tilesize, (float) h * tilesize, Mathf.range(180f));
+                          killUnit.weapons.first().bullet.create(t, (float) w * tilesize, (float) h * tilesize, Mathf.range(180f));
                        }
                     });
                  }
