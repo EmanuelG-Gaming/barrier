@@ -5,6 +5,7 @@ import arc.graphics.*;
 import arc.math.Mathf;
 import arc.Events;
 import arc.util.*;
+import arc.util.Time;
 import arc.util.Log.*;
 import arc.struct.Seq;
 import mindustry.*;
@@ -13,13 +14,14 @@ import mindustry.content.*;
 import mindustry.gen.*;
 import mindustry.entities.Effect;
 import mindustry.type.UnitType;
-import mindustry.mod.*;
+import mindustry.graphics.*;
 import mindustry.game.EventType.*;
-import mindustry.ui.*;
+import mindustry.ui.*; 
+import mindustry.mod.*;
 import barrier.entities.bullet.GathererBulletType;
 import barrier.content.*;
 
-import static mindustry.Vars;
+import static mindustry.Vars.*;
 
 public class Barrier extends Mod {
     private boolean hasSpawned = false;
@@ -34,26 +36,27 @@ public class Barrier extends Mod {
            if (enableConsole) {
              if (Mathf.chance(0.35f)) {
                if (hasSpawned == false) {
-                 BFx.gatherCumulate.at(
+                  BFx.gatherCumulate.at(
                     e.spawner.x, 
                     e.spawner.y,
                     state.rules.dropZoneRadius + 50f,
-                    new Color[]{(GathererBulletType) colorFrom, (GathererBulletType) colorTo}
-                 );
+                    new Color[]{Pal.lancerLaser, Pal.spore}
+                  );
+                  
+                  BUnitTypes.flyer.spawn(state.rules.defaultTeam, e.spawner.x, e.spawner.y);
+                  ui.showInfoPopup(Core.bundle.format(barrier.unitApproachingCheat, BUnitTypes.flyer.localizedName), 5f, Align.center, 192f, 0f, 0f, 0f);
                
-                 BUnitTypes.flyer.spawn(state.rules.defaultTeam, e.spawner.x, e.spawner.y);
-                 ui.showInfoPopup(Core.bundle.format(barrier.unitApproachingCheat, BUnitTypes.flyer.localizedName), 5f, Align.center, 192f, 0f, 0f, 0f);
-               
-                 Log.info("perish.");
-                 hasSpawned = true;
+                  Log.info("perish.");
+                  hasSpawned = true;
                }
                else {
                  @Nullable Teamc team; 
                  UnitType killUnit = UnitTypes.horizon;
                
                  ui.showInfoPopup("[scarlet]Perish.[]", 3f, Align.center, 192f, 0f, 0f, 0f);
+                 
                  // delay between the great death
-                 if (KillUnit.hasWeapons()) {
+                 if (killUnit.hasWeapons()) {
                     Time.run((float) 3 * Time.toSeconds(), () -> {
                        for (int w = 0; w < world.width; w++) for (int h = 0; h < world.height; h++) {
                           killUnit.weapons.first().bullet.hitEffect.at(w * tilesize, h * tilesize, 0f);
