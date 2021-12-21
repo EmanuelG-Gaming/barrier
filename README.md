@@ -27,6 +27,10 @@ These monsters may attack with repulsing bullets;
 > ~~Unfair anticheat.~~
 
 
+## Additional Information
+Barrier's Discord server: `https://discord.gg/VkM9rzqUUZ`.
+
+
 ## Building for Desktop Testing
 
 1. Install JDK **16**.
