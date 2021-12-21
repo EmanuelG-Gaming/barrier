@@ -16,6 +16,7 @@ import barrier.content.*;
 import barrier.content.BFx;
 import barrier.content.BBulletTypes;
 import barrier.world.blocks.defense.BarrierBlockType;
+import barrier.world.blocks.defense.turrets.BarrierTurret;
 
 import static mindustry.type.ItemStack.with;
 
@@ -42,7 +43,7 @@ public class BBlockTypes implements ContentList {
        requirements(Category.defense, BuildVisibility.editorOnly, with(Items.copper, 24, Items.graphite, 24, Items.thorium, 24, Items.surgeAlloy, 12));
     }};
     
-    failure = new ItemTurret("failure"){{
+    failure = new BarrierTurret("failure"){{
        size = 3;
        health = 750 * size * size;
        

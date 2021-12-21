@@ -18,6 +18,8 @@ These monsters may attack with repulsing bullets;
 
 > Two kinds of Barrier blocks. Those have the ability to repulse other units on other teams and aren't targetable by them;
 
+> Unworkimg turret;
+
 > A damaging status effect;
 
 > An extremely α map;
