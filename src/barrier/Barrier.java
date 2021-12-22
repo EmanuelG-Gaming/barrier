@@ -33,9 +33,10 @@ public class Barrier extends Mod {
     private UnitType launchUnit = BUnitTypes.barrierUnit;
     
     public Barrier() {
+        super();
         Log.info("Barrier");
         
-        Events.on(FileTreeInitEvent.class, e -> Core.app.post(() -> BarrierSounds.load());
+        Events.on(FileTreeInitEvent.class, e -> Core.app.post(() -> BarrierSounds.load()));
         
         Events.on(ClientLoadEvent.class, e -> {
             LoadedMod barrier = mods.locateMod("barrier");
@@ -47,7 +48,7 @@ public class Barrier extends Mod {
                t.image(Core.atlas.find("whiteui")).color(Pal.gray).size(400f, 3.5f).padTop(16f); 
             }).margin(10f).row();
 
-            dialog.cont.table(Tex.button, t ->
+            dialog.cont.table(Tex.button, t -> {
                t.labelWrap(() -> "")
                .update(l -> l.setText(
                    Core.bundle.format(
@@ -55,9 +56,8 @@ public class Barrier extends Mod {
                       barrier.meta.displayName,
                       barrier.meta.version
                    )
-               ))
-               .size(400f, 0f); 
-            ).margin(12f).padTop(16f).row();
+               )).size(400f, 0f); 
+            }).margin(12f).padTop(16f).row();
 
             dialog.cont.labelWrap(() -> "")
             .update(l -> l.setText(Core.bundle.get("barrier.launch-details")))
