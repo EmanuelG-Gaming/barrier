@@ -45,7 +45,7 @@ public class Barrier extends Mod {
             BaseDialog dialog = new BaseDialog("Something to say");
       
             dialog.cont.table(Styles.none, t -> {
-               t.image(launchUnit.fullIcon).size(120f, 120f).row();
+               t.image(launchUnit.region).size(120f, 120f).row();
                t.image(Core.atlas.find("whiteui")).color(Pal.gray).size(400f, 3.5f).padTop(16f); 
             }).margin(10f).row();
 
