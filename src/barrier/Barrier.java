@@ -31,7 +31,6 @@ import static mindustry.Vars.*;
 
 public class Barrier extends Mod {
     private boolean hasSpawned = false;
-    private UnitType launchUnit = BUnitTypes.barrierUnit;
     
     public Barrier() {
         super();
@@ -41,7 +40,10 @@ public class Barrier extends Mod {
         
         Events.on(ClientLoadEvent.class, e -> {
             LoadedMod barrier = mods.locateMod("barrier");
+            // unit sprite to show upon game launch
+            UnitType launchUnit = BUnitTypes.barrierUnit;
             
+            // title
             BaseDialog dialog = new BaseDialog("Something to say");
       
             dialog.cont.table(Styles.none, t -> {
@@ -49,6 +51,7 @@ public class Barrier extends Mod {
                t.image(Core.atlas.find("whiteui")).color(Pal.gray).size(400f, 3.5f).padTop(16f); 
             }).margin(10f).row();
 
+            // subtitle
             dialog.cont.table(Tex.button, t -> {
                t.labelWrap(() -> "")
                .update(l -> l.setText(
@@ -59,7 +62,8 @@ public class Barrier extends Mod {
                    )
                )).size(400f, 0f); 
             }).margin(12f).padTop(16f).row();
-
+            
+            // details
             dialog.cont.labelWrap(() -> "")
             .update(l -> l.setText(Core.bundle.get("barrier.launch-details")))
             .color(Pal.gray).size((float) 400 + 50 * 4, 0f)
@@ -67,7 +71,8 @@ public class Barrier extends Mod {
             .align(Align.center).row(); 
             
             dialog.cont.button("Close", dialog::hide).size(100f, 50f).margin(4f).padTop(6f);
-                
+            
+            // show this dialog after some time
             Time.runTask(10f, () -> dialog.show());
         });
         
@@ -76,6 +81,8 @@ public class Barrier extends Mod {
            if (enableConsole) {
              if (Mathf.chance(0.25f)) {
                if (hasSpawned == false) {
+                  // unit type to be spawned
+                  UnitType spawnUnit = BUnitTypes.flyer;
                   // sk warning!!!
                   Tile spawn = spawner.getFirstSpawn();
                   
@@ -86,7 +93,8 @@ public class Barrier extends Mod {
                      new Color[]{Pal.lancerLaser, Pal.spore}
                   );
                   
-                  BUnitTypes.flyer.spawn(state.rules.defaultTeam, spawn.worldx(), spawn.worldy());
+                  // spawn the respective unit, along with some floating text
+                  spawnUnit.spawn(state.rules.defaultTeam, spawn.worldx(), spawn.worldy());
                   ui.showInfoPopup(Core.bundle.format("barrier.unitApproachingCheat", BUnitTypes.flyer.localizedName), 5f, Align.center, 192, 0, 0, 0);
                
                   Log.info("perish.");
@@ -132,6 +140,7 @@ public class Barrier extends Mod {
     
     @Override
     public void loadContent() {
+        // load everything from the array
         for (ContentList list : barrierContent) list.load();
     }
 }
