@@ -23,6 +23,7 @@ import mindustry.world.*;
 import mindustry.ui.*;
 import mindustry.ui.dialogs.*;
 import mindustry.mod.*;
+import mindustry.mod.Mods.*;
 import barrier.entities.bullet.GathererBulletType;
 import barrier.content.*;
 
@@ -44,7 +45,7 @@ public class Barrier extends Mod {
             BaseDialog dialog = new BaseDialog("Something to say");
       
             dialog.cont.table(Styles.none, t -> {
-               t.image(launchUnit.fullRegion).size(120f, 120f).row();
+               t.image(launchUnit.fullIcon).size(120f, 120f).row();
                t.image(Core.atlas.find("whiteui")).color(Pal.gray).size(400f, 3.5f).padTop(16f); 
             }).margin(10f).row();
 
@@ -67,7 +68,7 @@ public class Barrier extends Mod {
             
             dialog.cont.button("Close", dialog::hide).size(100f, 50f).margin(4f).padTop(6f);
                 
-            Time.runTask(10f, () -> dialog::show);
+            Time.runTask(10f, () -> dialog.show());
         });
         
         // when the unoptimized code
@@ -79,10 +80,10 @@ public class Barrier extends Mod {
                   Tile spawn = spawner.getFirstSpawn();
                   
                   BFx.gatherCumulate.at(
-                    spawn.worldx(), 
-                    spawn.worldy(),
-                    state.rules.dropZoneRadius + 50f,
-                    new Color[]{Pal.lancerLaser, Pal.spore}
+                     spawn.worldx(), 
+                     spawn.worldy(),
+                     state.rules.dropZoneRadius + 50f,
+                     new Color[]{Pal.lancerLaser, Pal.spore}
                   );
                   
                   BUnitTypes.flyer.spawn(state.rules.defaultTeam, spawn.worldx(), spawn.worldy());
