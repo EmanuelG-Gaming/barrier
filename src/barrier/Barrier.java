@@ -130,7 +130,8 @@ public class Barrier extends Mod {
     public void init() {
         if (!headlesss) {
            scripts = Seq.with(
-              for (int i = 0; i < 2; i++) lBundle("details-" + i)
+              lBundle("details-0"),
+              lBundle("details-1")
            );
         }
     }
