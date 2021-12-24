@@ -47,8 +47,8 @@ public class Barrier extends Mod {
             BaseDialog dialog = new BaseDialog("Something to say");
       
             dialog.cont.table(Styles.none, t -> {
-               t.image(launchUnit.region).size(120f, 120f).row();
-               t.image(Core.atlas.find("whiteui")).color(Pal.gray).size(400f, 3.5f).padTop(16f); 
+               t.image(launchUnit.fullIcon).size(120f, 120f).row();
+               t.image(Core.atlas.find("whiteui")).color(Pal.gray).size(600f, 3.5f).padTop(16f); 
             }).margin(10f).row();
 
             // subtitle
@@ -60,7 +60,7 @@ public class Barrier extends Mod {
                       barrier.meta.displayName,
                       barrier.meta.version
                    )
-               )).size(400f, 0f); 
+               )).size(600f, 0f); 
             }).margin(12f).padTop(16f).row();
             
             // details
