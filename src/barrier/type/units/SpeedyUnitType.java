@@ -34,11 +34,9 @@ public class SpeedyUnitType extends BarrierUnitType {
       float sx = unit.x + Mathf.sin(Time.time * 0.05f) * radius, sy = unit.y + Mathf.cos(Time.time * 0.05f) * radius;
       for (int i = 0; i < itemCapacity; i++) {
          Time.run(8f * i, () -> {
-            if (unit.dead == false) {
-               Fx.itemTransfer.at(sx, sy, 4, item.color, unit);
-               hfx.at(sx, sy, 0, item);
-               unit.stack.amount += 1;
-            }
+             Fx.itemTransfer.at(sx, sy, 4, item.color, unit);
+             hfx.at(sx, sy, 0, item);
+             unit.stack.amount++;
          });
       }
      
