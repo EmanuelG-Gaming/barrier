@@ -14,7 +14,7 @@ import mindustry.type.*;
 import mindustry.type.ammo.PowerAmmoType;
 import mindustry.type.weapons.*;
 import mindustry.world.meta.*;
-import barrier.type.units.BarrierUnitType;
+import barrier.type.units.*;
 import barrier.content.*;
 import barrier.entities.bullet.*;
 import barrier.entities.units.BarrierUnitEntity;
@@ -77,7 +77,7 @@ public class BUnitTypes implements ContentList{
             }});
         }};
         
-        flyer = new BarrierUnitType("speedyBastard"){{
+        flyer = new SpeedyUnitType("speedyBastard"){{
             hideDetails = false;
             hitSize = 4.75f;
             flying = true;

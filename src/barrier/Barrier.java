@@ -30,6 +30,7 @@ import barrier.content.*;
 import static mindustry.Vars.*;
 
 public class Barrier extends Mod {
+    public Seq<String> scripts = new Seq<String>();
     private boolean hasSpawned = false;
     
     public Barrier() {
@@ -53,19 +54,15 @@ public class Barrier extends Mod {
 
             // subtitle
             dialog.cont.table(Tex.button, t -> {
-               t.labelWrap(() -> "")
-               .update(l -> l.setText(
-                   Core.bundle.format(
-                      "barrier.launch-subtitle",
-                      barrier.meta.displayName,
-                      barrier.meta.version
-                   )
+               t.labelWrap(Core.bundle.format(
+                   "barrier.launch-subtitle",
+                   barrier.meta.displayName,
+                   barrier.meta.version
                )).size(600f, 0f); 
             }).margin(12f).padTop(16f).row();
             
             // details
-            dialog.cont.labelWrap(() -> "")
-            .update(l -> l.setText(Core.bundle.get("barrier.launch-details")))
+            dialog.cont.labelWrap(scripts.isEmpty() ? "None." : scripts.random())
             .color(Pal.gray).size((float) 400 + 50 * 4, 0f)
             .padTop(6f)
             .align(Align.center).row(); 
@@ -127,6 +124,22 @@ public class Barrier extends Mod {
              }
            }
         });
+    }
+    
+    @Override
+    public void init() {
+        if (!headlesss) {
+           scripts = Seq.with(
+              for (int i = 0; i < 2; i++) {
+                 lBundle("details-" + i);
+              }
+           );
+        }
+    }
+    
+    // Launch Bundle
+    public void lBundle(String bundle) {
+      return Core.bundle.get("barrier.launch-" + bundle);
     }
     
     private final ContentList[] barrierContent = {
