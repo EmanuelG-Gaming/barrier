@@ -128,17 +128,12 @@ public class Barrier extends Mod {
     
     @Override
     public void init() {
-        if (!headlesss) {
+        if (!headless) {
            scripts = Seq.with(
-              lBundle("details-0"),
-              lBundle("details-1")
+              Core.bundle.get("barrier.launch-details-0"),
+              Core.bundle.get("barrier.launch-details-1")
            );
         }
-    }
-    
-    // Launch Bundle
-    public void lBundle(String bundle) {
-      return Core.bundle.get("barrier.launch-" + bundle);
     }
     
     private final ContentList[] barrierContent = {

@@ -7,6 +7,7 @@ import arc.util.*;
 import arc.util.Time;
 import mindustry.*;
 import mindustry.game.Team;
+import mindustry.gen.Unit;
 import mindustry.type.*;
 import mindustry.type.Item;
 import mindustry.type.UnitType;
@@ -28,10 +29,10 @@ public class SpeedyUnitType extends BarrierUnitType {
   }
   
   @Override
-  public void create(Team team) {
+  public Unit create(Team team) {
       Unit unit = super.create(team);
       float sx = unit.x + Mathf.sin(Time.time * 0.05f) * radius, sy = unit.y + Mathf.cos(Time.time * 0.05f) * radius;
-      for (int i = 0; i < type.itemCapacity; i++) {
+      for (int i = 0; i < itemCapacity; i++) {
          Time.run(8f * i, () -> {
             if (unit.dead == false) {
                Fx.itemTransfer.at(sx, sy, 4, item.color, unit);
