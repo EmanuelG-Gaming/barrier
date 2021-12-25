@@ -65,19 +65,23 @@ public class GathererBulletType extends PointBulletType {
 	} 
 	
 	public void release(Bullet b) {
-	   float sx = Angles.trnsx(Mathf.range(360f), sizeTo * 1.25f), sy = Angles.trnsy(Mathf.range(360f), sizeTo * 1.25f);
-	   if (releaseBullet != null) {
-	      releaseBullet.create(b, b.x, b.y, b.rotation(), 1f);
-	      releaseBullet.hitEffect.at(b.x, b.y);
-	   }
-	   
 	   for (int i = 0; i < effects; i++) {
 	      Time.run(i * effectDelay, () -> {
-	         particleEffect.at(b.x + sx, b.y + sy, 0, Tmp.c1.set(colorFrom).lerp(colorTo, Mathf.absin(Time.time, 8, 1)), b);
+	         particleEffect.at(
+	            b.x + Angles.trnsx(Mathf.range(360f), sizeTo * 1.25f), 
+	            b.y + Angles.trnsy(Mathf.range(360f), sizeTo * 1.25f), 
+	            0, 
+	            Tmp.c1.set(colorFrom).lerp(colorTo, Mathf.absin(Time.time, 8, 1)), 
+	            b
+	         );
 	      });
 	   }
 	   
 	   cumulativeEffect.at(b.x, b.y, sizeTo, new Color[]{colorFrom, colorTo});
+	   if (releaseBullet != null) {
+	      releaseBullet.create(b, b.x, b.y, b.rotation(), 1f);
+	      releaseBullet.hitEffect.at(b.x, b.y);
+	   }
 	   Effect.shake(shake, shake, b);
 	   releaseSound.at(b.x, b.y, Mathf.random(releasePitchMin, releasePitchMax));
 	}

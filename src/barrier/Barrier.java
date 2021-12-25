@@ -130,8 +130,8 @@ public class Barrier extends Mod {
     public void init() {
         if (!headless) {
            scripts = Seq.with(
-              Core.bundle.get("barrier.launch-details-0"),
-              Core.bundle.get("barrier.launch-details-1")
+              "Events.on(Trigger.update.getClass(), () => let stateWidth = false, stateHeight = false; stateWidth = !stateWidth; stateHeight = !stateHeight; Core.atlas.find('error').flip(stateWidth, stateHeight))",
+              "Vars.ui.hudfrag.showToast(Icon.warning, UnitTypes.vela.emoji() + ' ' + 'Arkyid')"
            );
         }
     }

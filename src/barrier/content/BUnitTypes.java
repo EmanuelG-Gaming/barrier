@@ -109,7 +109,7 @@ public class BUnitTypes implements ContentList{
             defaultController = FlyingAI::new;
             constructor = SpeedyUnitEntity::new;
             ammoType = new PowerAmmoType(5000);
-            spikes = 0;
+            spikes = 2;
             
             region = Core.atlas.find("anticheatUnit");
         }};
