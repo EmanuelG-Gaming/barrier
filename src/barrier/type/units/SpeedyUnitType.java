@@ -31,18 +31,18 @@ public class SpeedyUnitType extends BarrierUnitType {
   @Override
   public Unit create(Team team) {
       Unit unit = super.create(team);
-      float sx = unit.x + Mathf.sin(Time.time * 0.05f) * radius, sy = unit.y + Mathf.cos(Time.time * 0.05f) * radius;
+      float sx = Mathf.sin(Time.time * 0.05f) * radius, sy = Mathf.cos(Time.time * 0.05f) * radius;
       for (int i = 0; i < itemCapacity; i++) {
-         Time.run(8f * i, () -> {
-             Fx.itemTransfer.at(sx, sy, 4, item.color, unit);
-             hfx.at(sx, sy, 0, item);
+         Time.run(10f * i, () -> {
+             Fx.itemTransfer.at(unit.x + sx, unit.y + sy, 4, item.color, unit);
+             hfx.at(unit.x + sx, unit.y + sy, 0, item);
              unit.stack.amount++;
          });
       }
      
-      hfxBh.at(sx, sy, 0, item);
+      hfxBh.at(unit.x + sx, unit.y + sy, 0, item);
       unit.stack.item = item;
-      unit.apply(StatusEffects.unmoving, 8f * unit.type.itemCapacity + 10f);
+      unit.apply(StatusEffects.unmoving, 10f * unit.type.itemCapacity + 10f);
      
       return unit;
   }

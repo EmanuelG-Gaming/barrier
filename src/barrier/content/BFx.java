@@ -86,7 +86,7 @@ public class BFx {
   
   getItemBh = new Effect(10f * 8f, e -> {
     if (!(e.data instanceof Item item)) return;
-    Draw.color(item.color.cpy().mul(1.5f));
+    Draw.color(item.color.cpy().mul(1.2f));
     float growth = (10f + Mathf.sin(Time.time * 0.05f) * 5f) * Interp.pow5Out.apply(e.fslope());
     Fill.circle(e.x, e.y, growth);
     Draw.color(Color.black);
