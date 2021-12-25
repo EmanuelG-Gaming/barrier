@@ -65,7 +65,7 @@ public class GathererBulletType extends PointBulletType {
 	} 
 	
 	public void release(Bullet b) {
-	   float rx = Angles.trnsx(Mathf.range(360f), sizeTo * 1.25f), ry = Angles.trnsy(Mathf.range(360f), sizeTo * 1.25f);
+	   float sx = Angles.trnsx(Mathf.range(360f), sizeTo * 1.25f), sy = Angles.trnsy(Mathf.range(360f), sizeTo * 1.25f);
 	   if (releaseBullet != null) {
 	      releaseBullet.create(b, b.x, b.y, b.rotation(), 1f);
 	      releaseBullet.hitEffect.at(b.x, b.y);
