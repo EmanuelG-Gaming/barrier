@@ -4,6 +4,7 @@ import arc.*;
 import arc.audio.*;
 import arc.math.*;
 import arc.math.Mathf;
+import arc.math.Angles;
 import arc.util.*;
 import arc.util.Time;
 import mindustry.*;
@@ -22,6 +23,7 @@ import mindustry.entities.*;
 import mindustry.entities.Effect;
 import mindustry.entities.bullet.*;
 import mindustry.entities.units.*;
+import mindustry.graphics.Trail;
 import barrier.content.*;
 import barrier.content.BBulletTypes;
 import barrier.content.BUnitTypes;
@@ -42,6 +44,19 @@ public class BarrierUnitEntity extends UnitEntity {
    public int destroyUnits = 5;
    public float unitSpread = 45f;
    private static UnitType toastUnit = BUnitTypes.barrierUnit;
+   
+   public Trail trail = new Trail(7);
+   
+   @Override
+   public void update() {
+       super.update();
+       // again offset
+       float offset = type.engineOffset / 2f + type.engineOffset / 2f * elevation;
+       trail.update(
+           x + Angles.trnsx(rotation + 180, offset / 2f),
+           y + Angles.trnsy(rotation + 180, offset / 2f)
+       );
+   }
    
    @Override
    public void kill() {
