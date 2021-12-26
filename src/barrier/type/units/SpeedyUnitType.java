@@ -26,6 +26,8 @@ public class SpeedyUnitType extends BarrierUnitType {
   
   public SpeedyUnitType(String name) {
 	  	super(name);
+	  	// this unit should always use engine trails
+	  	useEngineTrail = true;
   }
   
   @Override

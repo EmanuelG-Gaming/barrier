@@ -18,11 +18,15 @@ import mindustry.type.UnitType;
 import mindustry.entities.*;
 import mindustry.entities.bullet.*;
 import mindustry.graphics.*;
+import mindustry.graphics.Trail;
 
 public class BarrierUnitType extends UnitType{
   public Color shineColor = Pal.lancerLaser;
   public Color engColor = Pal.spore;
   public Color secondaryColor = Color.white;
+  
+  public boolean useEngineTrail = false;
+  public Trail trail = new Trail(7);
   
   public int spikes = 4;
   
@@ -30,6 +34,17 @@ public class BarrierUnitType extends UnitType{
 	  	super(name);
 	  	onTitleScreen = false;
 	  	deathSound = Sounds.corexplode;
+   }
+   
+   @Override
+   public void update() {
+       super.update();
+       // again offset
+       float offset = engineOffset / 2f + engineOffset / 2f * elevation;
+       trail.update(
+          x + Angles.trnsx(rotation + 180, offset / 2f),
+          y + Angles.trnsy(rotation + 180, offset / 2f)
+       );
    }
    
    @Override
@@ -55,6 +70,15 @@ public class BarrierUnitType extends UnitType{
         unit.y + Angles.trnsy(unit.rotation + 180, offset - 1f),
         (engineSize + Mathf.absin(Time.time, 2f, engineSize/ 4f)) * unit.elevation / 2f
       );
+      
+      if (useEngineTrail) {
+         Draw.z(Layer.flyingUnit - 0.1f);
+         trail.draw(
+            Tmp.c1.set(engColor).lerp(secondaryColor, Mathf.absin(Time.time, 10, 1)),
+            engineSize * unit.elevation
+         );
+         Draw.z();
+      }
       Draw.reset();
    }
    
