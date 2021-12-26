@@ -61,10 +61,12 @@ public class BarrierUnitType extends UnitType{
       
       if (useEngineTrail) {
          Draw.z(Layer.flyingUnit - 0.1f);
-         (BarrierUnitEntity) trail.draw(
-            Tmp.c1.set(engColor).lerp(secondaryColor, Mathf.absin(Time.time, 10, 1)),
-            engineSize * unit.elevation
-         );
+         if (unit instanceof BarrierUnitEntity d) { 
+            d.trail.draw(
+               Tmp.c1.set(engColor).lerp(secondaryColor, Mathf.absin(Time.time, 10, 1)),
+               engineSize * unit.elevation
+            );
+         }
          Draw.z();
       }
       Draw.reset();
