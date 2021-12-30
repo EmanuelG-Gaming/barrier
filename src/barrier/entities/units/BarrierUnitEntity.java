@@ -42,8 +42,7 @@ public class BarrierUnitEntity extends UnitEntity {
    
    public UnitType destroyUnit = BUnitTypes.flyer;
    public int destroyUnits = 5;
-   public float unitSpread = 45f;
-   private static UnitType toastUnit = BUnitTypes.barrierUnit;
+   public float unitSpread = 50f;
    
    public Trail trail = new Trail(7);
    
@@ -80,7 +79,7 @@ public class BarrierUnitEntity extends UnitEntity {
       
       float windx = Mathf.range(1f) * world.width(), windy = Mathf.range(1f) * world.height();
       Call.createWeather(weather, 0.5f + Mathf.range(1.5f), weatherTime + Mathf.range(1600f), windx, windy);
-      ui.hudfrag.showToast(Icon.warning, toastUnit.emoji() + " " + Core.bundle.format("barrier.isDead", toastUnit.localizedName));
+      ui.hudfrag.showToast(Icon.warning, type.emoji() + " " + Core.bundle.format("barrier.isDead", type.localizedName));
       
       Time.run(60f, () -> {
          for (int i = 0; i < destroyUnits; i++) {

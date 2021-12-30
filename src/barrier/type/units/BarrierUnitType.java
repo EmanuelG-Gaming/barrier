@@ -28,6 +28,9 @@ public class BarrierUnitType extends UnitType{
   public boolean useEngineTrail = false;
   
   public int spikes = 4;
+  public boolean useSecondarySpikes = false;
+  public float spikeWidth = -4f;
+  public float spikeHeight = -4f;
   
    public BarrierUnitType(String name) {
 	  	super(name);
@@ -78,7 +81,10 @@ public class BarrierUnitType extends UnitType{
       Lines.circle(unit.x, unit.y, size);
       for (int i = 0; i < spikes; i++) {
          float rot = (360 / spikes * i) + Mathf.sin(Time.time * 0.05f) * 45f + unit.rotation;
-         Drawf.tri(unit.x + Angles.trnsx(rot, size), unit.y + Angles.trnsy(rot, size), 4, -4, rot);
+         Drawf.tri(unit.x + Angles.trnsx(rot, size), unit.y + Angles.trnsy(rot, size), spikeWidth, spikeHeight, rot);
+         if (useSecondarySpikes) {
+           Drawf.tri(unit.x + Angles.trnsx(rot, size), unit.y + Angles.trnsy(rot, size), spikeWidth, -spikeHeight, rot);
+         }
       }
    }
 }

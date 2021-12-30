@@ -95,6 +95,31 @@ public class BUnitTypes implements ContentList{
             region = Core.atlas.find("speedyBastard");
         }};
         
+        finalBoss = new BarrierUnitType("finalBoss"){{
+            hideDetails = false;
+            hitSize = 28f;
+            flying = true;
+            lowAltitude = true;
+            health = 120000f;
+            defense = 15;
+            speed = 3.5f;
+            accel = 0.07f;
+            drag = 0.006f;
+            range = 250f;
+            engineOffset = 17;
+            engineSize = 4.5f; 
+            defaultController = FlyingAI::new;
+            constructor = BarrierUnitEntity::new;
+            ammoType = new PowerAmmoType(16000);
+            spikes = 8;
+            useSecondarySpikes = true;
+            spikeWidth = 7f;
+            spikeHeight = 10f;
+            shineColor = engColor;
+            
+            region = Core.atlas.find("finalBoss");
+        }};
+                
         savior = new BarrierUnitType("anticheatUnit"){{
             hideDetails = false;
             hitSize = 3.45f;
@@ -104,7 +129,7 @@ public class BUnitTypes implements ContentList{
             accel = 0.07f;
             drag = 0.006f;
             range = 190f;
-            engineOffset = 3.25f;
+            engineOffset = 3.5f;
             engineSize = 0.5f;
             defaultController = FlyingAI::new;
             constructor = SpeedyUnitEntity::new;
