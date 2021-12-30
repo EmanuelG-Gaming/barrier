@@ -2,7 +2,7 @@ package barrier.entities.bullet;
 
 import arc.graphics.Color;
 import mindustry.graphics.Pal;
-import mindustry.gen.*
+import mindustry.gen.*;
 import mindustry.entities.bullet.*;
 import barrier.entities.bullet.RepulseBulletType;
 
