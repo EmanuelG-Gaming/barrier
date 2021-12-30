@@ -11,7 +11,7 @@ public class RepulseMissileType extends RepulseBulletType {
 	  	super(speed, damage);
 	  	sprite = "missile-large";
 	  	backColor = Pal.spore;
-      frontColor = Color.white
+      frontColor = Color.white;
 		  trailColor = Pal.spore;
 		  trailLength = 8;
 		  trailChance = 0f;
