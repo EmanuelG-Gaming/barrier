@@ -23,7 +23,7 @@ import barrier.entities.units.SpeedyUnitEntity;
 public class BUnitTypes implements ContentList{
     public static UnitType
     
-    barrierUnit, flyer, savior;
+    barrierUnit, flyer, finalBoss, savior;
     
     @Override
     public void load() {
@@ -101,13 +101,13 @@ public class BUnitTypes implements ContentList{
             flying = true;
             lowAltitude = true;
             health = 120000f;
-            defense = 15;
             speed = 3.5f;
             accel = 0.07f;
             drag = 0.006f;
             range = 250f;
             engineOffset = 17;
             engineSize = 4.5f; 
+            armor = 15f;
             defaultController = FlyingAI::new;
             constructor = BarrierUnitEntity::new;
             ammoType = new PowerAmmoType(16000);
