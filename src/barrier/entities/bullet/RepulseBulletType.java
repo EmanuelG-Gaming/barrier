@@ -21,6 +21,7 @@ import barrier.content.BStatusEffects;
 public class RepulseBulletType extends BulletType {
 	public float repulseRange = 50f;
 	public float rang = 120f;
+	// Armor-ignoring damage
 	public float repulseDamage = 0f;
 	public float size = 10f;
 	public StatusEffect knockbackStatus = BStatusEffects.severed;
@@ -41,6 +42,7 @@ public class RepulseBulletType extends BulletType {
 	
 	@Override
   public void draw(Bullet b) {
+    super.draw(b);
     Draw.color(trailColor);
     Fill.circle(b.x, b.y, size);
     Draw.color(Color.white);
@@ -56,6 +58,7 @@ public class RepulseBulletType extends BulletType {
         v1.set(b).sub(enemy).nor().scl(repulseRange * 80f);
         v1.setAngle(b.angleTo(enemy));
         enemy.impulse(v1);
+        if (enemy instanceof Healthc) enemy.damagePierce(repulseDamage);
       }
     });
   }

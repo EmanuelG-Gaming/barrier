@@ -108,6 +108,7 @@ public class BUnitTypes implements ContentList{
             engineOffset = 17;
             engineSize = 4.5f; 
             armor = 15f;
+            buildSpeed = 4f;
             defaultController = FlyingAI::new;
             constructor = BarrierUnitEntity::new;
             ammoType = new PowerAmmoType(16000);
@@ -118,6 +119,27 @@ public class BUnitTypes implements ContentList{
             shineColor = engColor;
             
             region = Core.atlas.find("finalBoss");
+            
+            weapons.add(
+            new Weapon("array"){{
+                top = true;
+                x = 4.5f;
+                y = -3.5f;
+                mirror = true;
+                alternate = false;
+                shots = 2;
+                reload = 45f;
+                shootSound = Sounds.missile;
+                bullet = new RepulseMissileType(4f, 150f){{
+                   size = 7.5f;
+                   despawnEff = Fx.none;
+                   rang = 60f;
+                   repulseRange = 20f;
+                   splashDamage = 180f;
+                   splashDamageRadius = 60f;
+                   repulseDamage = (float) 150 / 4;
+                }};
+            }});
         }};
                 
         savior = new BarrierUnitType("anticheatUnit"){{
