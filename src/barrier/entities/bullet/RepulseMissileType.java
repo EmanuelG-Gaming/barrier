@@ -2,7 +2,7 @@ package barrier.entities.bullet;
 
 import arc.graphics.Color;
 import mindustry.graphics.Pal;
-import mindustry.entities.bullet.BulletType;
+import mindustry.entities.bullet.*;
 import barrier.entities.bullet.RepulseBulletType;
 
 public class RepulseMissileType extends RepulseBulletType {

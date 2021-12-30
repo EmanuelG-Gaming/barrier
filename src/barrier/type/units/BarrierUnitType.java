@@ -48,7 +48,16 @@ public class BarrierUnitType extends UnitType{
    
    @Override
    public void drawEngine(Unit unit) {
+      if (!unit.isFlying()) return;
       float offset = engineOffset / 2f + engineOffset / 2f * unit.elevation;
+      if (useEngineTrail) {
+         if (unit instanceof BarrierUnitEntity d) { 
+            d.trail.draw(
+               Tmp.c1.set(engColor).lerp(secondaryColor, Mathf.absin(Time.time, 10, 1)),
+               (engineSize + Mathf.absin(Time.time, 2f, engineSize / 4f) * unit.elevation) * trailScl
+            );
+         }
+      } 
       Draw.color(engColor, secondaryColor, Mathf.absin(Time.time, 10, 1));
       Fill.circle(
         unit.x + Angles.trnsx(unit.rotation + 180, offset),
@@ -61,15 +70,6 @@ public class BarrierUnitType extends UnitType{
         unit.y + Angles.trnsy(unit.rotation + 180, offset - 1f),
         (engineSize + Mathf.absin(Time.time, 2f, engineSize/ 4f)) * unit.elevation / 2f
       );
-      
-      if (useEngineTrail) {
-         if (unit instanceof BarrierUnitEntity d) { 
-            d.trail.draw(
-               Tmp.c1.set(engColor).lerp(secondaryColor, Mathf.absin(Time.time, 10, 1)),
-               engineSize * unit.elevation
-            );
-         }
-      }
       Draw.reset();
    }
    
