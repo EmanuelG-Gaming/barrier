@@ -91,8 +91,8 @@ public class Barrier extends Mod {
                   );
                   
                   // spawn the respective unit, along with some floating text
-                  spawnUnit.spawn(state.rules.defaultTeam, spawn.worldx(), spawn.worldy());
-                  ui.showInfoPopup(Core.bundle.format("barrier.unitApproachingCheat", BUnitTypes.flyer.localizedName), 5f, Align.center, 192, 0, 0, 0);
+                  spawnUnit.spawn(state.rules.waveTeam, spawn.worldx(), spawn.worldy());
+                  ui.showInfoPopup(Core.bundle.format("barrier.unitApproachingCheat", spawnUnit.localizedName), 5f, Align.center, 192, 0, 0, 0);
                
                   Log.info("perish.");
                   hasSpawned = true;

@@ -12,6 +12,8 @@ Don't judge me by my commit spam, I just don't have a compiler for testing.
   
   -Flyer;
   
+  -Blockage, an extremely well-armored unit with armor-piercing ([see HealthComp.java](https://github.com/Anuken/Mindustry/blob/a5c44e7998e16a969ada99b891580fae3968155a/core/src/mindustry/entities/comp/HealthComp.java#L57)) missiles;
+  
   -the Savior ~~(or a madness combat reference)~~.
   
 These monsters may attack with repulsing bullets;
