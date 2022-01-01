@@ -77,6 +77,15 @@ public class BFx {
     Lines.circle(e.x, e.y, radius / 2f);
   }),
   
+  pesticide = new Effect(80f, e -> { 
+    float size = Interp.pow10Out.apply(e.fslope()) * 60f;
+    Draw.color(Pal.spore, Pal.lancerLaser, e.fin());
+    Draw.alpha(Interp.pow10Out.apply(e.fslope()));
+    Lines.circle(e.x, e.y, size);
+    Draw.alpha(0.5f * e.fout() * e.fslope());
+    Fill.circle(e.x, e.y, size * e.finpow());
+  }},
+  
   getItem = new Effect(30f, e -> {
     if (!(e.data instanceof Item item)) return;
     Draw.color(item.color);

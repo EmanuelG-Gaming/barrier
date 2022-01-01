@@ -34,13 +34,13 @@ public class BBlockTypes implements ContentList {
     barrier = new BarrierBlockType("barrier"){{
        size = 1;
        hideDetails = false;
-       requirements(Category.defense, BuildVisibility.editorOnly, with(Items.copper, 6, Items.graphite, 6, Items.thorium, 6, Items.surgeAlloy, 3, BItems.indignalum, 6, BItems.repudialite, 6));
+       requirements(Category.defense, BuildVisibility.editorOnly, with(Items.copper, 6, Items.graphite, 6, Items.thorium, 6, Items.surgeAlloy, 6, BItems.indignalum, 6, BItems.repudialite, 3));
     }};
     
     barrierLarge = new BarrierBlockType("barrierLarge"){{
        size = 2;
        hideDetails = false;
-       requirements(Category.defense, BuildVisibility.editorOnly, with(Items.copper, 24, Items.graphite, 24, Items.thorium, 24, Items.surgeAlloy, 12, BItems.indignalum, 24, BItems.repudialite, 12));
+       requirements(Category.defense, BuildVisibility.editorOnly, with(Items.copper, 24, Items.graphite, 24, Items.thorium, 24, Items.surgeAlloy, 24, BItems.indignalum, 24, BItems.repudialite, 12));
     }};
     
     failure = new BarrierTurret("failure"){{
