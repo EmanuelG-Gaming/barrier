@@ -123,10 +123,11 @@ public class BUnitTypes implements ContentList{
             weapons.add(
             new Weapon("array"){{
                 top = true;
-                x = 6f;
-                y = -5.25f;
+                x = 10f;
+                y = -6.5f;
                 mirror = true;
                 alternate = false;
+                rotate = true;
                 shots = 2;
                 reload = 45f;
                 shootSound = Sounds.missile;
