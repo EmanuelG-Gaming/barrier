@@ -137,6 +137,7 @@ public class Barrier extends Mod {
     }
     
     private final ContentList[] barrierContent = {
+        new BItems(),
         new BBlockTypes(),
         new BUnitTypes(),
         new BBulletTypes(),

@@ -34,18 +34,18 @@ public class BBlockTypes implements ContentList {
     barrier = new BarrierBlockType("barrier"){{
        size = 1;
        hideDetails = false;
-       requirements(Category.defense, BuildVisibility.editorOnly, with(Items.copper, 6, Items.graphite, 6, Items.thorium, 6, Items.surgeAlloy, 3));
+       requirements(Category.defense, BuildVisibility.editorOnly, with(Items.copper, 6, Items.graphite, 6, Items.thorium, 6, Items.surgeAlloy, 3, BarrierItems.indignalum, 6, BarrierItems.repudialite, 6));
     }};
     
     barrierLarge = new BarrierBlockType("barrierLarge"){{
        size = 2;
        hideDetails = false;
-       requirements(Category.defense, BuildVisibility.editorOnly, with(Items.copper, 24, Items.graphite, 24, Items.thorium, 24, Items.surgeAlloy, 12));
+       requirements(Category.defense, BuildVisibility.editorOnly, with(Items.copper, 24, Items.graphite, 24, Items.thorium, 24, Items.surgeAlloy, 12, BarrierItems.indignalum, 24, BarrierItems.repudialite, 12));
     }};
     
     failure = new BarrierTurret("failure"){{
        size = 3;
-       health = 750 * size * size;
+       health = 1000 * size * size;
        
        shots = 3;
        range = 180f;
@@ -57,7 +57,7 @@ public class BBlockTypes implements ContentList {
        rotateSpeed = 10f;
        
        ammo(Items.surgeAlloy, BBulletTypes.repulsiveBulletSmall);
-       requirements(Category.turret, BuildVisibility.editorOnly, with(Items.titanium, 1100, Items.graphite, 1200, Items.silicon, 2500, Items.plastanium, 850, Items.surgeAlloy, 600));
+       requirements(Category.turret, BuildVisibility.editorOnly, with(Items.titanium, 1100, Items.graphite, 1200, Items.silicon, 2500, Items.plastanium, 850, Items.surgeAlloy, 600, BarrierItems.repudialite, 50));
     }};
   }
 }
