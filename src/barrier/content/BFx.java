@@ -84,7 +84,7 @@ public class BFx {
     Lines.circle(e.x, e.y, size);
     Draw.alpha(0.5f * e.fout() * e.fslope());
     Fill.circle(e.x, e.y, size * e.finpow());
-  }},
+  )},
   
   getItem = new Effect(30f, e -> {
     if (!(e.data instanceof Item item)) return;
