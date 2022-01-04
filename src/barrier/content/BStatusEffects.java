@@ -1,6 +1,5 @@
 package barrier.content;
 
-import mindustry.*;
 import mindustry.graphics.*; 
 import mindustry.ctype.*;
 import mindustry.type.*;
@@ -12,13 +11,13 @@ public class BStatusEffects implements ContentList{
     severed;
     
     @Override
-    public void load(){
+    public void load() {
         severed = new StatusEffect("severed"){{
             hideDetails = false; // I mean, this only works in V7, iirc
             color = Pal.health;
-            speedMultiplier = 1.3f;
-            healthMultiplier = 0.6f;
-            damage = 0.8f;
+            speedMultiplier = 1.4f;
+            healthMultiplier = 0.65f;
+            damage = 0.95f;
             effect = BFx.severedWounds;
         }};
     }

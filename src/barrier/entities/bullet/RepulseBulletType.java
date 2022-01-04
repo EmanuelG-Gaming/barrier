@@ -47,7 +47,7 @@ public class RepulseBulletType extends BulletType {
     Fill.circle(b.x, b.y, size);
     Draw.color(Color.white);
     Fill.circle(b.x, b.y, size / 2);
-    Draw.reset();
+    Draw.color();
   }
   
   /*this is a thing from Flare Boss*/
