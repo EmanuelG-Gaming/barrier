@@ -1,7 +1,10 @@
 package barrier.entities.bullet;
 
+import arc.graphics.*;
+import arc.graphics.g2d.*;
 import arc.graphics.Color;
 import arc.math.*;
+import mindustry.graphics.*;
 import mindustry.graphics.Pal;
 import mindustry.entities.bullet.*;
 import mindustry.entities.Effect;

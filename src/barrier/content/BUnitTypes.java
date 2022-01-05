@@ -137,7 +137,6 @@ public class BUnitTypes implements ContentList{
                 shootStatus = BStatusEffects.severed;
                 cooldownTime = 120f;
                 shootSound = Sounds.missile;
-                parentizeEffects = true;
                 bullet = new RepulseMissileType(5f, 150f){{
                    size = 7.5f;
                    despawnEff = Fx.none;
