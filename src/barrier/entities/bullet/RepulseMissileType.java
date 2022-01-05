@@ -38,7 +38,7 @@ public class RepulseMissileType extends RepulseBulletType {
    public void draw(Bullet b) {
       super.draw(b);
       Draw.color(trailColor);
-      Draw.z(layer - 0.01);
+      Draw.z(layer - 0.01f);
       int points = 4;
       for (int i = 0; i < points; i++) {
          float angle = i * 360f / points;
