@@ -133,12 +133,12 @@ public class BUnitTypes implements ContentList{
                 inaccuracy = 10f;
                 reload = 200f;
                 firstShotDelay = 60f;
-                chargeEffect = Fx.lancerLaserCharge;
                 shootStatusDuration = 60f;
                 shootStatus = BStatusEffects.severed;
                 cooldownTime = 120f;
                 shootSound = Sounds.missile;
                 bullet = new RepulseMissileType(5f, 250f){{
+                   shootEffect = Fx.lancerLaserCharge;
                    lifetime = 140f;
                    size = 7.5f;
                    despawnEff = Fx.none;
