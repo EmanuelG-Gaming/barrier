@@ -113,6 +113,7 @@ public class BBlockTypes implements ContentList {
        size = 2;
        hasPower = true;
        hasLiquids = false;
+       itemCapacity = 130;
        drawer = new DrawSmelter(Color.valueOf("c093fa"));
        ambientSound = Sounds.smelter;
        ambientSoundVolume = 0.07f;
