@@ -30,7 +30,7 @@ public class BBlockTypes implements ContentList {
   barrier, barrierLarge, 
   
   // Turrets
-  disobeyment, uncertainty, failure;
+  disobeyment, uncertainty, failure,
   
   // Production
   repudialiteForgery;
