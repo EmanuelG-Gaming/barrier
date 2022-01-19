@@ -4,6 +4,8 @@ import arc.*;
 import arc.graphics.*;
 import arc.graphics.g2d.*;
 import arc.math.*;
+import arc.math.Mathf;
+import arc.math.Angles;
 import arc.math.geom.*;
 import arc.math.geom.Vec2;
 import arc.struct.*;
@@ -52,6 +54,22 @@ public class BFx {
     Lines.square(e.x, e.y, radius / 2f);
     Draw.alpha(alpha - 0.4f);
     Fill.square(e.x, e.y, radius / 2f);
+  }),
+  
+  repudialiteBlast = new Effect(60f, e -> {
+     Draw.color(Color.valueOf("c093fa").cpy().mul(1.30f), Color.valueOf("c093fa"), e.fin());
+     Lines.stroke(e.fslope() + 0.5f);
+     Draw.alpha(Interp.pow5Out.apply(e.fout()));
+     Angles.randLenVectors(e.id, 30, e.fin() * 100f, (x, y) -> {
+         float angle = Mathf.angle(x, y / 2);
+         Lines.lineAngle(e.x + x, e.y + y / 2, angle, 5f);
+     });
+     
+     e.scaled(25f, s -> {
+         Draw.alpha(s.fout());
+         Lines.stroke(2.5f * s.fslope());
+         Lines.circle(e.x, e.y, 45 * s.fin() + 10);
+     });
   }),
   
   // Fx.itemTransfer except it's curs-

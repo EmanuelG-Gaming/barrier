@@ -7,11 +7,14 @@ import mindustry.gen.*;
 import mindustry.type.*;
 import mindustry.content.*;
 import mindustry.content.Items;
+import mindustry.content.Fx;
 import mindustry.world.*;
 import mindustry.world.Block;
 import mindustry.world.blocks.*;
 import mindustry.world.blocks.defense.turrets.ItemTurret;
 import mindustry.world.meta.*;
+import mindustry.world.draw.DrawSmelter;
+import mindustry.entities.effect.MultiEffect;
 import barrier.content.*;
 import barrier.content.BFx;
 import barrier.content.BBulletTypes;
@@ -28,6 +31,9 @@ public class BBlockTypes implements ContentList {
   
   // Turrets
   disobeyment, uncertainty, failure;
+  
+  // Production
+  repudialiteForgery;
 
   @Override
   public void load() {
@@ -94,6 +100,22 @@ public class BBlockTypes implements ContentList {
        
        ammo(Items.surgeAlloy, BBulletTypes.repulsiveBulletSmall);
        requirements(Category.turret, BuildVisibility.editorOnly, with(Items.titanium, 1100, Items.graphite, 1200, Items.silicon, 2500, Items.plastanium, 850, Items.surgeAlloy, 600, BItems.repudialite, 50));
+    }};
+    
+    repudialiteForgery = new GenericCrafter("repudialiteForgery"){{
+       requirements(Category.crafting, with(Items.silicon, 300, Items.graphite, 150, Items.lead, 120, Items.phaseFabric, 55, Items.surgeAlloy, 85));
+       craftEffect = new MultiEffect(Fx.smeltsmoke, BFx.repudialiteBlast);
+       outputItem = new ItemStack(BItems.repudialite, 2);
+       craftTime = 300f;
+       size = 2;
+       hasPower = true;
+       hasLiquids = false;
+       drawer = new DrawSmelter(Color.valueOf("c093fa"));
+       ambientSound = Sounds.smelter;
+       ambientSoundVolume = 0.07f;
+
+       consumes.items(with(Items.surgeAlloy, 25, Items.plastanium, 65, Items.phaseFabric, 20));
+       consumes.power(6.50f);
     }};
   }
 }
