@@ -1,6 +1,8 @@
 package barrier.content;
 
 import arc.*;
+import arc.graphics.*;
+import arc.graphics.g2d.*;
 import mindustry.*;
 import mindustry.ctype.*;
 import mindustry.gen.*;
@@ -12,6 +14,7 @@ import mindustry.world.*;
 import mindustry.world.Block;
 import mindustry.world.blocks.*;
 import mindustry.world.blocks.defense.turrets.ItemTurret;
+import mindustry.world.blocks.production.GenericCrafter;
 import mindustry.world.meta.*;
 import mindustry.world.draw.DrawSmelter;
 import mindustry.entities.effect.MultiEffect;
