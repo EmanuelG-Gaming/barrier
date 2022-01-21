@@ -72,6 +72,23 @@ public class BFx {
      });
   }),
   
+  //something very similar to repudialiteBlast
+  indignalumBlast = new Effect(60f, e -> {
+     Draw.color(Pal.lancerLaser, Color.valueOf("8ca4f5"), e.fin());
+     Lines.stroke(e.fslope() + 0.5f);
+     Draw.alpha(Interp.pow5Out.apply(e.fout()));
+     Angles.randLenVectors(e.id, 30, e.fin() * 100f, (x, y) -> {
+         float angle = Mathf.angle(x / 2, y);
+         Lines.lineAngle(e.x + x, e.y + y / 2, angle, 5f);
+     });
+     
+     e.scaled(25f, s -> {
+         Draw.alpha(s.fout());
+         Lines.stroke(2.5f * s.fslope());
+         Lines.circle(e.x, e.y, 45 * s.fin() + 10);
+     });
+  }),
+  
   // Fx.itemTransfer except it's curs-
   gatherParticle = new Effect(40f, e -> {
     if (!(e.data instanceof Position pos)) return;

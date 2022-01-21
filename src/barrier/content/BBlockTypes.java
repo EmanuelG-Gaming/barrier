@@ -36,7 +36,7 @@ public class BBlockTypes implements ContentList {
   disobeyment, uncertainty, failure,
   
   // Production
-  repudialiteForgery;
+  repudialiteForgery, indignalumForgery;
 
   @Override
   public void load() {
@@ -62,7 +62,6 @@ public class BBlockTypes implements ContentList {
        range = 180f;
        reloadTime = 40f;
        inaccuracy = 10f;
-       recoilAmount = 7f;
        shootSound = Sounds.pew;
        rotateSpeed = 10f;
        ammo(
@@ -79,7 +78,7 @@ public class BBlockTypes implements ContentList {
        range = 180f;
        reloadTime = 20f;
        inaccuracy = 10f;
-       recoilAmount = 7f;
+       recoilAmount = 2f;
        shootSound = Sounds.pew;
        rotateSpeed = 10f;
        ammo(
@@ -96,7 +95,7 @@ public class BBlockTypes implements ContentList {
        range = 180f;
        reloadTime = 60f;
        inaccuracy = 8f;
-       recoilAmount = 7f;
+       recoilAmount = 4.5f;
        shootSound = Sounds.release;
        
        rotateSpeed = 10f;
@@ -120,6 +119,23 @@ public class BBlockTypes implements ContentList {
 
        consumes.items(with(Items.surgeAlloy, 25, Items.plastanium, 65, Items.phaseFabric, 20));
        consumes.power(6.50f);
+    }};
+    
+    indignalumForgery = new GenericCrafter("indignalumForgery"){{
+       requirements(Category.crafting, with(Items.silicon, 300, Items.graphite, 150, Items.lead, 120, Items.phaseFabric, 55, Items.surgeAlloy, 85));
+       craftEffect = new MultiEffect(Fx.smeltsmoke, BFx.indignalumBlast);
+       outputItem = new ItemStack(BItems.indignalum, 1);
+       craftTime = 550f;
+       size = 2;
+       hasPower = true;
+       hasLiquids = false;
+       itemCapacity = 130;
+       drawer = new DrawSmelter(Color.valueOf("8ca4f5"));
+       ambientSound = Sounds.smelter;
+       ambientSoundVolume = 0.07f;
+
+       consumes.items(with(Items.surgeAlloy, 15, Items.plastanium, 45, Items.phaseFabric, 25));
+       consumes.power(6.00f);
     }};
   }
 }
