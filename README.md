@@ -30,7 +30,9 @@ These monsters may attack with repulsing bullets;
 
 
 ## Additional Information
-Barrier's Discord server: `https://discord.gg/VkM9rzqUUZ`.
+Barrier's Discord server: https://discord.gg/VkM9rzqUUZ.
+
+The already compiled builds (▶Actions): right underneath the repository and its template's name.
 
 
 ## Building for Desktop Testing
