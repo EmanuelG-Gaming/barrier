@@ -36,7 +36,12 @@ public class BBlockTypes implements ContentList {
   disobeyment, uncertainty, failure,
   
   // Production
-  repudialiteForgery, indignalumForgery;
+  repudialiteForgery, indignalumForgery,
+  
+  // Power
+  //coreReactor
+  
+  ;
 
   @Override
   public void load() {
