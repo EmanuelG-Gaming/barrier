@@ -79,7 +79,7 @@ public class BFx {
      Draw.alpha(Interp.pow5Out.apply(e.fout()));
      Angles.randLenVectors(e.id, 30, e.fin() * 100f, (x, y) -> {
          float angle = Mathf.angle(x / 2, y);
-         Lines.lineAngle(e.x + x / 2, e.y, angle, 5f);
+         Lines.lineAngle(e.x + x / 2, e.y + y, angle, 5f);
      });
      
      e.scaled(35f, s -> {
