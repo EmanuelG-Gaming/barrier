@@ -42,7 +42,7 @@ public class BarrierUnitEntity extends UnitEntity {
    
    public UnitType destroyUnit = BUnitTypes.flyer;
    public int destroyUnits = 5;
-   public float unitSpread = 50f;
+   public float unitSpread = 100f;
    
    public Trail trail = new Trail(7);
    

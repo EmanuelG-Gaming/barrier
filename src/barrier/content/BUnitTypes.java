@@ -128,8 +128,8 @@ public class BUnitTypes implements ContentList{
                 mirror = true;
                 alternate = true;
                 rotate = true;
-                shots = 5;
-                shotDelay = 10f;
+                shots = 10;
+                shotDelay = 5f;
                 inaccuracy = 10f;
                 reload = 200f;
                 firstShotDelay = 60f;
@@ -137,7 +137,7 @@ public class BUnitTypes implements ContentList{
                 shootStatus = BStatusEffects.severed;
                 cooldownTime = 120f;
                 shootSound = Sounds.missile;
-                bullet = new RepulseMissileType(5f, 250f){{
+                bullet = new RepulseMissileType(6.5f, 250f){{
                    shootEffect = Fx.lancerLaserCharge;
                    lifetime = 140f;
                    size = 7.5f;
@@ -146,7 +146,7 @@ public class BUnitTypes implements ContentList{
                    repulseRange = 15f;
                    splashDamage = 280f;
                    splashDamageRadius = 60f;
-                   repulseDamage = (float) 150 / 4;
+                   repulseDamage = (float) 200 / 4;
                 }};
             }});
         }};
