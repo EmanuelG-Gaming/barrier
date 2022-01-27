@@ -121,6 +121,20 @@ public class BFx {
     Fill.circle(e.x, e.y, size * e.finpow());
   }),
   
+  bulletExtraction = new Effect(120, e -> {
+    if (!(e.data instanceof Bullet bul)) return;
+    
+    Draw.z(bul.layer - 0.01f);
+    Draw.mixcol(bul.backColor.cpy().lerp(Color.black, e.fin()), 1);
+    Tmp.v1.set(e.x, e.y).trns(e.rotation, 10 * e.fin());
+    Draw.rect("bullet-back", e.x + Tmp.v1.x, e.y + Tmp.v1.y, bul.width * e.fout(), bul.height * e.fout(), e.rotation - 90);
+    Draw.mixcol();
+    
+    Draw.color(bul.frontColor, Color.black, e.fin());
+    Draw.rect("bullet", e.x, e.y, bul.width * e.fout(), bul.height * e.fout(), e.rotation - 90);
+    Draw.z();
+  }),
+  
   getItem = new Effect(30f, e -> {
     if (!(e.data instanceof Item item)) return;
     Draw.color(item.color);
